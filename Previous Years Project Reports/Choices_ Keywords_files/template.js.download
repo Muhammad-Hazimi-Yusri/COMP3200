@@ -1,0 +1,46 @@
+$(document).ready(function() {
+		//Apply message styles from template
+		$("p.error").wrap('<div class="box warning"></div>');
+		$("p.notice").wrap('<div class="box information"></div>');
+		$("#authMessage").addClass('box warning');
+		$(".message").addClass('box information');
+		$(".warning").addClass('box warning');
+		$(".error-message").addClass('box warning');
+
+		//Activate JqueryUI elements
+		$(".datepicker").datepicker({dateFormat: 'dd-mm-yy' });
+		$(".datetimepicker").datetimepicker({dateFormat: 'dd-mm-yy', timeFormat: 'HH:mm', showSecond: false });
+
+		//Fix paginator
+		$(".paging .current").wrapInner("<a></a>");
+
+		//Confirmation link
+		$(".confirm").click(function() {
+			if (!confirm('Are you sure?')) return false;
+			});
+
+		//Toggle collapsable boxes
+		function toggle_box(element) {
+			var box = $(element).parents(".box");
+			var inner = $(".box_collapse",box);
+			if (inner.is(":visible")) {
+				$(inner).slideUp();
+				$("h1",box).css("margin-bottom","-10px");
+				$(".fa-chevron-up",box).removeClass("fa-chevron-up").addClass("fa-chevron-down");
+			} else {
+				$(inner).slideDown();
+				$("h1",box).css("margin-bottom","10px");
+				$(".fa-chevron-down",box).removeClass("fa-chevron-down").addClass("fa-chevron-up");
+			}
+		}
+		$(".box-collapsed").each(function() {
+				$(this).children().not('h1.title').wrapAll('<div class="box_collapse"></div>');
+				$(this).find('h1.title').append('<i class="fa fa-chevron-down" style="float: right"></i>').css('cursor','pointer');
+				$(this).find('.box_collapse').hide();
+				$(this).find('h1.title').css('margin-bottom','-10px');
+				});
+		$(".box-collapsed h1").click(function() {
+				toggle_box($(this));
+				});
+
+});

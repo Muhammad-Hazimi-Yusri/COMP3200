@@ -1,0 +1,386 @@
+﻿/* document */
+html
+{
+	background-color: #ccc;
+}
+
+body
+{
+	
+}
+
+
+/* layout */
+
+.account
+{
+	font-size: 80%;
+	color: #333;
+}
+				
+	.account a
+	{
+		color: #fff
+	}
+	
+.branding
+{
+	background: #014359 url('/css/Template/Assets/Images/logo-light.png') no-repeat right 11px;
+	color: #fff;
+}
+		
+	.branding h1
+	{
+		color: #fff;
+	}
+
+	.branding h2
+	{
+		font-size: 14px;
+		line-height: 22px;
+	    margin-bottom: 11px;
+		margin-top: -22px;
+		color: #fff;
+	}
+		
+.navigation
+{
+	background-color: #fff;
+}
+
+	.navigation:empty
+	{
+		display: none;	
+	}
+
+	.navigation .menu
+	{
+		margin-bottom: 0;	
+	}
+
+.content 
+{
+	background-color: #fff;
+	padding: 22px 0;
+}
+
+.copyright 
+{
+	border-top: 2px solid #014359;
+	background-color: #fff;
+	line-height: 44px;
+}
+
+	.copyright :last-child
+	{
+		margin-bottom: 0;
+	}
+
+.trailer
+{
+	
+}
+
+/* rows */
+.row.small 
+{
+	padding: 11px 0;
+}
+
+.row.medium 
+{
+	padding: 22px 0;
+}
+
+.row.large 
+{
+	padding: 44px 0;
+}
+
+
+/* menus */
+
+.menu
+{
+	margin-bottom: 22px;
+}
+
+    .menu ul
+    {
+        list-style: none;
+        margin: 0;
+        padding: 0
+    }
+
+.menu.horizontal
+{
+	background-color: #F0F0F0;
+	border-bottom: 1px solid #ccc;
+}
+
+    .menu.horizontal ul
+    {
+	    margin-bottom: 0;
+    }
+
+    .menu.horizontal li
+    {
+	    display: block;
+        float: left;
+	    padding: 0;
+	    margin: 0;
+    }
+			
+    .menu.horizontal li a 
+    {
+        text-decoration: none;
+	    text-align: center;
+	    color: #fff;
+	    display: block;	
+    }
+    	
+    /* 1-st level menu */
+    .menu.horizontal > ul
+    {
+		height: 33px;
+	    margin-bottom: 32px;
+	    background-color: #014359;
+	    position: relative;
+    }
+
+		.menu.horizontal > ul > li
+		{
+			line-height: 32px;	
+		}
+
+			.menu.horizontal > ul > li > a
+			{
+				padding: 0 25px 0 25px;
+				margin-right: 2px;
+			}
+		
+			.menu.horizontal > ul > li > a:hover, .menu.horizontal > ul > li.selected > a
+			{
+				background-color: #0A96A9; 
+			}
+
+    /* 2-nd level menu */
+    .menu.horizontal > ul > li > ul
+    {
+		position: absolute;
+	    display: block;
+		left: 15px;
+		top: 32px;
+    }
+		.menu.horizontal > ul > li > ul > li 
+		{
+			line-height: 25px;	
+		}
+
+	    .menu.horizontal > ul > li > ul > li > a
+	    {
+		    margin: 5px 15px 0 0;
+		    padding: 0 15px;
+			color: #333; 
+	    }
+		
+	    .menu.horizontal > ul > li > ul > li > a:hover, .menu.horizontal > ul > li > ul > li.selected > a
+	    {
+		    color: #0A96A9; 
+	    }
+
+.menu.vertical
+{
+    
+}
+
+    .menu.vertical ul
+    {
+	    
+    }
+
+    .menu.vertical li
+    {
+	    line-height: 33px;
+	    display: block;
+	    padding: 0;
+	    margin: 0;
+    }
+			
+    .menu.vertical li a
+    {
+		border-bottom: 1px solid #80A1AC;
+		background-color: #014359;
+		display: block;
+	    padding: 0 5px 0 10px;
+        text-decoration: none;
+	    color: #fff;
+    }
+   
+	.menu.vertical li a:hover, .menu.vertical li.selected a:hover
+	{
+		background-color: #0A96A9;
+	}
+
+	.menu.vertical li.selected > a
+	{
+		background-color: #002D3C;	
+	}
+
+	/* second level */
+	.menu.vertical > ul > li > ul > li > a
+	{
+		padding-left: 20px;
+	}
+
+	/* third level */
+	.menu.vertical > ul > li > ul > li > ul > li > a
+	{
+		padding-left: 30px;
+	}
+
+
+/* mobile menu styles */
+
+.mobile-menu-container
+{
+	width: 100%;
+	z-index: 999;
+	position: absolute;
+}
+
+.mobile-menu-toggle
+{
+	margin-right: 1%;
+	float: right;
+}
+
+	.mobile-menu-toggle a
+	{
+		background-color: #002D3C;
+		width: 22px;
+		height: 22px;
+		text-align: center;
+		color: #fff;
+		padding-top: 1px;
+		float: right;
+	}
+
+	.mobile-menu-toggle a span
+	{
+		background-color: #fff;
+		display: block;
+		height: 2px;
+		width: 14px;
+		margin: 4px 4px 0 4px;
+	}
+
+.mobile-menu
+{
+	position: absolute;
+	left: 0;
+	top: 22px;
+	width: 98%;
+	margin: 0 1%;
+	background-color: #002D3C;
+	z-index:999;
+	border-bottom: 3px solid #002D3C;
+}
+
+	.mobile-menu h1 
+	{
+		background-color: #002D3C;
+		padding: 9px;
+		margin: 0;
+		color: #fff;
+	}
+
+	.mobile-menu ul
+	{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		clear: both;
+	}
+	
+		.mobile-menu li
+		{
+			margin: 0;
+		}
+		
+			.mobile-menu li a
+			{
+				border-top: 1px solid #80A1AC;
+				background-color: #014359;
+				padding: 10px;
+				text-decoration: none;
+				color: #fff;
+				display: block;
+			}
+		
+				.mobile-menu li li a
+				{
+					padding-left: 20px;
+				}
+				
+					.mobile-menu li li li a
+					{
+						padding-left: 40px;
+					}
+					
+						.mobile-menu li li li li a
+						{
+							padding-left: 60px;
+						}
+					
+			.mobile-menu li a:hover
+			{
+				background: #0A96A9;
+			}
+
+
+/* desktop and tablet landscape */
+
+@media only screen and (min-width: 960px)
+{
+    
+}
+
+
+/* tablet portrait */
+
+@media only screen and (min-width: 768px) and (max-width: 959px)
+{
+    
+}
+
+
+/* all mobile devices */
+
+@media only screen and (max-width: 767px)
+{	
+    .branding
+	{
+		background: #014359 url('/css/Template/Assets/Images/logo-light.png') no-repeat right 1px;
+	}
+}
+
+
+/* mobile landscape */
+
+@media only screen and (min-width: 480px) and (max-width: 767px)
+{
+
+}
+
+
+/* mobile portrait */
+
+@media only screen and (max-width: 479px)
+{
+	.branding
+	{
+		background-image: none;
+		text-align: center;
+	}
+}

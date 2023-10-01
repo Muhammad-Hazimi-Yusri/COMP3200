@@ -1,0 +1,102 @@
+/**
+ * Created by kep1u13 on 27/04/15.
+ */
+
+$(document).ready(function() {
+
+    $(".tagLookupSource")
+        .bind("keydown", function (event) {
+            if (event.keyCode === $.ui.keyCode.TAB && $(".ui-autocomplete").is(":visible")) {
+                event.preventDefault();
+            }
+
+            if (event.keyCode === $.ui.keyCode.ENTER) {
+                if ($(this).attr("data-lookup_dest") != undefined && $(".ui-autocomplete").is(":hidden")) {
+                    updateDestination($(this), $("#" + $(this).attr("data-lookup_dest")));
+                }
+                event.preventDefault();
+            }
+
+        })
+        .autocomplete({
+            source: function (request, response) {
+		        if ($(this.element).attr("data-lookup_field") != undefined) {
+                    var tagdata = $(this.element).attr('data-lookup_field');
+                } else {
+                    return false;
+                }
+                $.getJSON("/tags/ajaxSearch/" + tagdata, {
+                    term: extractLast(request.term)
+                }, response);
+            },
+            search: function () {
+                // custom minLength
+                var term = extractLast(this.value);
+                if (term.length < 2) {
+                    return false;
+                }
+            },
+            focus: function () {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function (event, ui) {
+                var terms = split(this.value);
+                // remove the current input
+                terms.pop();
+                // add the selected item
+                terms.push(ui.item.value);
+                // add placeholder to get the comma-and-space at the end
+                terms.push("");
+
+                var glue = $(this).attr("data-lookup_source_glue");
+                if (glue != " ") {
+                    glue = '\n';
+                }
+
+                this.value = terms.join(' ');
+                return false;
+            },
+            position: {
+                my: "left top",
+                at: "left bottom"
+            }
+        })
+        .each(function() {
+            if ($(this).attr("data-lookup_dest") != undefined ) {
+                $(this).wrap("<div class='row'></div>").wrap("<div class='eleven columns'></div>");
+                $(this).parent().after("<div class='one column'><input type='button' value='Add' class='tagLookupButton' data-lookup_source='" + $(this).attr("id") + "' data-lookup_dest='" + $(this).attr("data-lookup_dest") + "'></input></div>");
+            }
+        });
+
+    $(".tagLookupButton").click(function() {
+        updateDestination(
+            $("#" + $(this).attr("data-lookup_source")),
+            $("#" + $(this).attr("data-lookup_dest"))
+        );
+        event.preventDefault();
+    });
+
+    function split(val) {
+        return val.split(/\s+/);
+    }
+
+    function extractLast(term) {
+        return split(term).pop();
+    }
+
+    function updateDestination(source, destination) {
+        var terms = split(source.val());
+
+        var glue = source.attr("data-lookup_dest_glue");
+        if (glue != " ") {
+            glue = '\n';
+        }
+        destination.val(destination.val().trim() + glue + terms.join(glue));
+        source.val("");
+
+        if (destination.prop("tagName") == "TEXTAREA") {
+            destination.scrollTop(destination[0].scrollHeight);
+        }
+    }
+});

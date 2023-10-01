@@ -1,0 +1,241 @@
+.tile {
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    height: 96px;
+    margin-bottom: 20px;
+    padding: 2px;
+    position: relative;
+    text-decoration: none;
+    transition: background-color 0.25s ease-in 0s;
+    width: 100%;
+    background-color: #014359;
+    cursor: pointer;
+}
+.tile:hover {
+    border: 2px solid #E3E3E3;
+    color: #FFFF00;
+    text-decoration: none;
+    background-color: #396c7d;
+}
+.tile p:hover {
+    text-decoration: none;
+}
+.tile-image {
+    text-align: center;
+}
+.tile-image i {
+    margin-top: 10%;
+}
+.tile-input {
+    font-size: 18px;
+    width: 100%;
+}
+.tile-text {
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 60px;
+    text-align: center;
+}
+.tile-label {
+    bottom: 0;
+    padding: 5px 10px 5px 5px;
+    position: absolute;
+    text-align: center;
+    padding-right: 20px;
+    width: 95%;
+}
+.tile-blue {
+    background-color: #007FFF;
+}
+.tile-blue:hover {
+    background-color: #00B4FF;
+}
+.tile-pink {
+    background-color: #9954BB;
+}
+.tile-pink:hover {
+    background-color: #CD81E6;
+}
+.tile-purple {
+    background-color: #69003F;
+}
+.tile-purple:hover {
+    background-color: #9B0064;
+}
+.tile-black {
+    background-color: #222222;
+}
+.tile-black:hover {
+    background-color: #383838;
+}
+.tile-orange {
+    background-color: #FF7518;
+}
+.tile-orange:hover {
+    background-color: #FFA928;
+}
+.tile-yellow {
+    background-color: #D1A925;
+}
+.tile-yellow:hover {
+    background-color: #F2DA3D;
+}
+.tile-green {
+    background-color: #3FB618;
+}
+.tile-green:hover {
+    background-color: #64E328;
+}
+.tile-red {
+    background-color: #FF0039;
+}
+.tile-red:hover {
+    background-color: #FF427B;
+}
+.tile-step {
+    border-radius: 250px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-weight: bold;
+    height: 32px;
+    line-height: 32px;
+    margin-right: 10px;
+    text-align: center;
+    width: 32px;
+}
+.tile-button-icon {
+    margin-right: 16px;
+    float: left;
+}
+.tile-button-label {
+
+}
+.tile-button-description {
+    margin: 0;
+    font-size: 90%;
+    text-decoration: none;
+}
+.buttons, .buttons_menu {
+	list-style-type: none;
+	margin: 0;
+}
+.buttons li {
+	list-style-type: none;
+	margin-right: 10px;
+	float: left;
+}
+.buttons .fa, .buttons_menu .fa {
+	margin-right: 8px;
+}
+.buttons_menu li {
+	list-style-type: none;
+}
+
+.radio label {
+	margin-left: 10px;
+	margin-right: 20px;
+}
+.multicolumn .checkbox {
+	width: 33%;
+	float: left;
+}
+#flashMessage {
+	margin-top: 15px;
+}
+form .required label:after {
+        color: red;
+        content: ' (required)';
+        display:inline;
+}
+
+div.input {
+    padding: 0;
+    margin: 0 0 1.8em 0;
+    border: 0;
+}
+
+div.input.narrow {
+    margin: 0 0 0.5em 0;
+}
+
+.well > div.input {
+    margin: 0;
+}
+
+div.input > p {
+    margin: 0;
+}
+
+div.input > input,textarea, select {
+    margin: 0.2em 0 0;
+}
+
+
+div.input > label {
+    margin: 0;
+}
+
+div.checkbox {
+    padding-left: 1.6em;
+}
+
+div.checkbox > input[type='checkbox'] {
+    margin-right: 0.5em;
+    margin-left: -1.6em;
+}
+
+div.checkbox > label {
+    display: inline;
+}
+
+div.select > div.checkbox {
+    margin-left: 1em;
+}
+
+.well {
+  background-color: #F5F5F5;
+  border: 1px solid #E3E3E3;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+  margin-bottom: 20px;
+  min-height: 20px;
+  padding: 10px;
+}
+.fa-offset {
+	margin-right: 8px;
+}
+.actions {
+	white-space: nowrap;
+}
+
+form.mini {
+	margin: 0;
+}
+
+.floatright {
+	float: right;
+}
+
+input[type="number"] {
+	display: block;
+}
+
+.summary_fields p {
+	font-weight: bold; 
+	font-size: 120%; 
+	font-style: italic;
+}
+.summary_fields label {
+	display: none;
+}
+.description_fields label:after {
+	content: ": ";
+}
+
+.additional_fields label:after {
+    content: ": ";
+}
+
+form h4 {
+    margin-bottom: 0.5em;
+}

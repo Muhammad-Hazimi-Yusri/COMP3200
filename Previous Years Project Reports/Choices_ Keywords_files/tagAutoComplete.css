@@ -1,0 +1,17 @@
+
+.ui-autocomplete {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-width: 400px;
+    font-size: 13px;
+    background: #f3f3f3 none;
+}
+
+.tagLookupButton {
+    width: 100%
+}
+
+.tagLookupSource {
+    width: 100%;
+}

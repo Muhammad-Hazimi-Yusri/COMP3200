@@ -1,0 +1,395 @@
+/*
+Solid Grid V1.0
+Copyright 2013, Patrick Robin
+www.solidgrid.co.uk
+Free to use under the MIT license.
+http://www.opensource.org/licenses/mit-license.php
+01/10/2013
+*/
+
+/* containers */
+
+.container
+{
+	width: 98%;
+    margin: 0 auto;
+}
+
+.row
+{
+    
+}
+
+	.row .row
+	{
+		margin: 0 -1%;
+	}
+
+/* base columns */
+
+.column, .columns
+{
+	position: relative;
+	display: inline;
+    float: left;
+    margin: 0 1%;
+    min-height: 1px;
+}
+
+.container .one.column
+{
+    width: 6.333%;
+}
+
+.container .two.columns
+{
+    width: 14.667%;
+}
+
+.container .three.columns
+{
+    width: 23.0%;
+}
+
+.container .four.columns
+{
+    width: 31.333%;
+}
+
+.container .five.columns
+{
+    width: 39.667%;
+}
+
+.container .six.columns
+{
+    width: 48%;
+}
+
+.container .seven.columns
+{
+    width: 56.333%;
+}
+
+.container .eight.columns
+{
+    width: 64.667%;
+}
+
+.container .nine.columns
+{
+    width: 73%;
+}
+
+.container .ten.columns
+{
+    width: 81.333%;
+}
+
+.container .eleven.columns
+{
+    width: 89.667%;
+}
+
+.container .twelve.columns
+{
+    width: 98%;
+}
+
+
+/* offset columns */
+
+.container .offset-by-one
+{
+    padding-left: 8.333%;
+}
+
+.container .offset-by-two
+{
+    padding-left: 16.667%;
+}
+
+.container .offset-by-three
+{
+    padding-left: 25%;
+}
+
+.container .offset-by-four
+{
+    padding-left: 33.333%;
+}
+
+.container .offset-by-five
+{
+    padding-left: 41.667%;
+}
+
+.container .offset-by-six
+{
+    padding-left: 50%;
+}
+
+.container .offset-by-seven
+{
+    padding-left: 58.333%;
+}
+
+.container .offset-by-eight
+{
+    padding-left: 66.667%;
+}
+
+.container .offset-by-nine
+{
+    padding-left: 75%;
+}
+
+.container .offset-by-ten
+{
+    padding-left: 83.333%;
+}
+
+.container .offset-by-eleven
+{
+    padding-left: 91.667%;
+}
+
+/* push columns */
+
+.container .push-by-one
+{
+    left: 8.333%;
+}
+
+.container .push-by-two
+{
+    left: 16.667%;
+}
+
+.container .push-by-three
+{
+    left: 25.0%;
+}
+
+.container .push-by-four
+{
+    left: 33.333%;
+}
+
+.container .push-by-five
+{
+    left: 41.667%;
+}
+
+.container .push-by-six
+{
+    left: 50%;
+}
+
+.container .push-by-seven
+{
+    left: 58.333%;
+}
+
+.container .push-by-eight
+{
+    left: 66.667%;
+}
+
+.container .push-by-nine
+{
+    left: 75%;
+}
+
+.container .push-by-ten
+{
+    left: 82.333%;
+}
+
+.container .push-by-eleven
+{
+    left: 91.667%;
+}
+
+
+/* pull columns */
+
+.container .pull-by-one
+{
+    right: 8.333%;
+}
+
+.container .pull-by-two
+{
+    right: 16.667%;
+}
+
+.container .pull-by-three
+{
+    right: 25.0%;
+}
+
+.container .pull-by-four
+{
+    right: 33.333%;
+}
+
+.container .pull-by-five
+{
+    right: 41.667%;
+}
+
+.container .pull-by-six
+{
+    right: 50%;
+}
+
+.container .pull-by-seven
+{
+    right: 58.333%;
+}
+
+.container .pull-by-eight
+{
+    right: 66.667%;
+}
+
+.container .pull-by-nine
+{
+    right: 75%;
+}
+
+.container .pull-by-ten
+{
+    right: 82.333%;
+}
+
+.container .pull-by-eleven
+{
+    right: 91.667%;
+}
+
+
+/* desktop and tablet landscape */
+
+@media only screen and (min-width: 960px)
+{
+    .hide-on-desktop
+    {
+        display: none;    
+    }
+}
+
+
+/* tablet portrait */
+
+@media only screen and (min-width: 768px) and (max-width: 959px)
+{
+    .hide-on-tablet
+    {
+        display: none;    
+    }
+}
+
+
+/* all mobile devices */
+
+@media only screen and (max-width: 767px)
+{	
+    .container {
+        width: 100%;
+    }
+    
+    /* base columns */
+
+	.columns, .column
+	{
+	    display: block;
+	    float: none;
+        margin: 0 auto;
+    }
+
+    .container .one.column, .container .two.columns, .container .three.columns, .container .four.columns, .container .five.columns, .container .six.columns, .container .seven.columns, .container .eight.columns, .container .nine.columns, .container .ten.columns, .container .eleven.columns, .container .twelve.columns
+	{
+        width: 98%;
+    }
+
+
+	/* offset columns */
+    
+	.container .offset-by-one, .container .offset-by-two, .container .offset-by-three, .container .offset-by-four, .container .offset-by-five, .container .offset-by-six, .container .offset-by-seven, .container .offset-by-eight, .container .offset-by-nine, .container .offset-by-ten, .container .offset-by-eleven, .container .offset-by-twelve
+	{
+        padding-left: 0;
+    }
+
+	
+	/* push/pull columns */
+	
+	.container .push-by-one, .container .push-by-two, .container .push-by-three, .container .push-by-four, .container .push-by-five, .container .push-by-six, .container .push-by-seven, .container .push-by-eight, .container .push-by-nine, .container .push-by-ten, .container .push-by-eleven, .container .pull-by-one, .container .pull-by-two, .container .pull-by-three, .container .pull-by-four, .container .pull-by-five, .container .pull-by-six, .container .pull-by-seven, .container .pull-by-eight, .container .pull-by-nine, .container .pull-by-ten, .container .pull-by-eleven
+	{
+		left: 0;
+	}
+
+    .hide-on-mobile
+    {
+        display: none;
+    }
+}
+
+
+/* mobile landscape */
+
+@media only screen and (min-width: 480px) and (max-width: 767px)
+{
+
+}
+
+
+/* mobile portrait */
+
+@media only screen and (max-width: 479px)
+{
+
+}
+
+
+/* clearing */
+
+.container:after
+{
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix:before, .clearfix:after, .row:before, .row:after
+{
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.row:after, .clearfix:after
+{
+    clear: both;
+}
+
+.row, .clearfix
+{
+    zoom: 1;
+}
+
+.clear
+{
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
