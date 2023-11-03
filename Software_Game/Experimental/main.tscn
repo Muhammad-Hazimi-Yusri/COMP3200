@@ -1,0 +1,92 @@
+[gd_scene load_steps=15 format=3 uid="uid://di3gscbgenglq"]
+
+[ext_resource type="Shader" path="res://video_player.gdshader" id="1_03rk8"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_v3u22"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="2_gs7t6"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="3_64u4l"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_pj0vb"]
+[ext_resource type="PackedScene" uid="uid://bsv87gmbewim0" path="res://video_player.tscn" id="5_g2106"]
+[ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="6_bnace"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qly1c"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7wbpd"]
+
+[sub_resource type="Sky" id="Sky_cu3rs"]
+sky_material = SubResource("ProceduralSkyMaterial_7wbpd")
+
+[sub_resource type="Environment" id="Environment_b0s2f"]
+background_mode = 2
+sky = SubResource("Sky_cu3rs")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6a34b"]
+resource_local_to_scene = false
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_frw2o"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_03rk8")
+shader_parameter/movie = SubResource("ViewportTexture_6a34b")
+
+[sub_resource type="QuadMesh" id="QuadMesh_n3kfk"]
+lightmap_size_hint = Vector2i(12, 12)
+material = SubResource("ShaderMaterial_frw2o")
+size = Vector2(4, 3)
+
+[node name="Main" type="Node3D"]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="LeftController" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, 0)
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="XROrigin3D/LeftController" instance=ExtResource("1_v3u22")]
+
+[node name="RightController" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0)
+tracker = &"right_hand"
+
+[node name="RightHand" parent="XROrigin3D/RightController" instance=ExtResource("2_gs7t6")]
+
+[node name="FunctionPointer" parent="XROrigin3D" instance=ExtResource("3_64u4l")]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_qly1c")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8, 0)
+
+[node name="StartXR" parent="." instance=ExtResource("6_bnace")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_b0s2f")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="Screen" parent="SubViewport" instance=ExtResource("4_pj0vb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4)
+screen_size = Vector2(4.5, 3)
+scene = ExtResource("5_g2106")
+viewport_size = Vector2(1400, 800)
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.313726, 1, 1, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -4)
+mesh = SubResource("QuadMesh_n3kfk")
+skeleton = NodePath("../XROrigin3D/XRCamera3D")
