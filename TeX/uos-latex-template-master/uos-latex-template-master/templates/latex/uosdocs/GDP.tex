@@ -1,0 +1,89 @@
+%% ----------------------------------------------------------------
+%% GDP.tex
+%% ---------------------------------------------------------------- 
+\documentclass[sotoncolour]{uosgdp}         % Use the GDP Report Style with custom link colour
+\graphicspath{{../Figures/}}   % Location of your graphics files
+\usepackage[round]{natbib}            % Use Natbib style for the refs.
+\usepackage{bibentry}          % Use bibentry for prepublished works
+\nobibliography*               % Use bibentry for prepublished works
+\usepackage{attrib}            % Use the attrib package for quotations
+\hypersetup{colorlinks=true}   % Set to false for black/white printing
+\input{Definitions}            % Include your abbreviations
+%% ----------------------------------------------------------------
+%% --------------------THESIS/DOC INFORMATION ---------------------
+\faculty     {Faculty of [Insert faculty]}
+\FACULTY     {\MakeUppercase{\facname}}
+\department  {School of [Insert school]}
+\DEPARTMENT  {\MakeUppercase{\deptname}}
+\group       {[Group name]}
+\GROUP       {\MakeUppercase{\groupname}}
+\title      {An Investigation into \dots}
+\authors    {\texorpdfstring
+             {\href{mailto:S.A.Watson@soton.ac.uk}{Name and email, for example, Sarah Alison Watson}}
+             {Name and email, for example, Sarah Alison Watson}
+            }
+\addresses  {\groupname\\\deptname\\\univname}
+\date       {\today}
+\supervisor {Mr Beavis}
+\examiner   {Dr Butthead}
+\degree     {Master of Engineering}
+%% Optional Fields TODO: Replace these fields with your own data
+\qualifications{[Insert Previous Qualifications, for example MEng]}
+\subject    {}
+\keywords   {}
+
+\begin{document}
+%% ------------------ FRONT MATTER ORGANISATION -------------------
+\frontmatter
+\maketitle
+\begin{abstract}
+This work is all about \dots
+\end{abstract}
+\pdfbookmark[0]{\contentsname}{toc} % Add pdf bookmark for contents page for navigation
+\tableofcontents
+\listoffigures
+\listoftables
+%% The List of listings does not, by default, appear in the ToC, so....
+\addtotoc{Listings}
+\lstlistoflistings
+\listofaddmaterial
+\addtolom{Material Name e.g Map}
+\addtolom{Material Name e.g CD}
+\addtolom{Test Material}
+%% ---------- STATEMENT OF ORIGINALITY/ ACKNOW. / DEDICATORY ----------
+%% based on ai_statement.docx available: https://secure.ecs.soton.ac.uk/notes/elec6200/
+%% If not for an ECS GDP and you want to remove or change the ECS Manadatory ai statements.
+%%\authorshipdeclaration[\item Department specific regulation]{\item extra statements}
+\authorshipdeclaration{
+%% ********You must change the statements below if you do not agree with them. ***********
+\item I have acknowledged all sources, and identified any content taken from elsewhere.
+\item I have not used any resources produced by anyone else.
+\item I did all the work myself, or with my allocated group, and have not helped anyone else.
+\item The material in the report is genuine, and I have included all my data/code/designs.
+\item I have not submitted any part of this work for another assessment.
+\item My work did not involve human participants, their cells or data, or animals.}
+%% -----------------------
+
+\acknowledgements{Thanks to no one.}
+\dedicatory{To \dots}
+%%Lightweight Definitions and Abbreviations see package:nomencl for alternative
+%% Include if relevant to discipline
+\listofsymbols{ll}{$w$ & The weight vector\\$\S$ & If relevant to discipline}
+\mainmatter
+%% ------------------ MAIN MATTER (CONTENT) --------------------
+\include{Introduction}
+\include{Conclusions}
+\begin{lstlisting}[caption=Listing of what an example listing would be like]
+This is a test listing
+
+The test listing has several lines
+to show how the listings
+will be displayed
+\end{lstlisting}
+\appendix
+\include{AppendixA}
+\backmatter
+\bibliographystyle{plainnat}
+\bibliography{UOS}
+\end{document}
+%% ----------------------------------------------------------------

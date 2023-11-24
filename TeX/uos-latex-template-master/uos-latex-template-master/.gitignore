@@ -1,0 +1,12 @@
+*.bst
+*.bib
+*.eps
+*.aux
+*.fls
+*.out
+*.bbl
+*.blg
+*.lo?
+*.toc
+*_latexmk
+*.synctex.gz

@@ -1,0 +1,92 @@
+% This file requires docstrip version 2.4 available from
+% ftp.dante.de tex-archive/macros/latex/unpacked/docstrip.tex
+
+\input docstrip.tex
+
+\preamble
+
+Copyright (C) 2001 by Steve R. Gunn
+Modifications Copyright (C) 2019 by Edward Longman
+
+This file is part of the UoSDocs class distribution
+
+\endpreamble
+\edef\eps{\perCent!PS-Adobe-3.0^^J%
+          \DoubleperCent Title: \outFileName^^J%
+          \DoubleperCent Creator: UoSThesis.dtx
+}
+\edef\tex{\DoubleperCent\space ----------------------------------------------------------------^^J%
+          \DoubleperCent\space\outFileName^^J%
+          \DoubleperCent\space ----------------------------------------------------------------
+}
+\edef\bib{\DoubleperCent\space ----------------------------------------------------------------^^J%
+          \DoubleperCent\space\outFileName^^J%
+          \DoubleperCent\space ----------------------------------------------------------------
+}
+\edef\bst{\DoubleperCent\space ----------------------------------------------------------------^^J%
+          \DoubleperCent\space\outFileName^^J%
+          \DoubleperCent\space ----------------------------------------------------------------
+}
+
+\usedir{tex/latex/uosdocs}
+\keepsilent
+\askforoverwritefalse
+
+\Msg{*** Generating thesis, minithesis and project class files ***}
+
+\generate{\file{uosthesis.cls}      {\from{uosdocs.dtx}{thesis}}
+          \file{uosminithesis.cls}  {\from{uosdocs.dtx}{minithesis}}
+          \file{uosprogress.cls}    {\from{uosdocs.dtx}{progress}}
+          \file{uosproject.cls}     {\from{uosdocs.dtx}{project}}
+          \file{uosreport.cls}      {\from{uosdocs.dtx}{report}}
+          \file{uosarticle.cls}     {\from{uosdocs.dtx}{article}}
+          \file{uosgdp.cls}         {\from{uosdocs.dtx}{gdp}}
+          \file{uosgdpsummary.cls}  {\from{uosdocs.dtx}{gdpsummary}}
+          \file{Thesis.tex}         {\usepreamble\tex
+                                     \nopostamble
+                                     \from{uosdocs.dtx}{testthesis}}
+          \file{MiniThesis.tex}     {\usepreamble\tex
+                                     \nopostamble
+                                     \from{uosdocs.dtx}{testminithesis}}
+          \file{Progress.tex}       {\usepreamble\tex
+                                     \nopostamble
+                                     \from{uosdocs.dtx}{testprogress}}
+          \file{Project.tex}        {\usepreamble\tex
+                                     \nopostamble
+                                     \from{uosdocs.dtx}{testproject}}
+          \file{Report.tex}         {\usepreamble\tex
+                                     \nopostamble
+                                     \from{uosdocs.dtx}{testreport}}
+          \file{Article.tex}        {\usepreamble\tex
+                                     \nopostamble
+                                     \from{uosdocs.dtx}{testarticle}}
+          \file{GDP.tex}            {\usepreamble\tex
+                                     \nopostamble
+                                     \from{uosdocs.dtx}{testgdp}}
+          \file{GDPSummary.tex}     {\usepreamble\tex
+                                     \nopostamble
+                                     \from{uosdocs.dtx}{testgdpsummary}}
+          \file{Introduction.tex}   {\usepreamble\tex
+                                     \nopostamble
+                                     \from{uosdocs.dtx}{introduction}}
+          \file{Conclusions.tex}    {\usepreamble\tex
+                                     \nopostamble
+                                     \from{uosdocs.dtx}{conclusions}}
+          \file{AppendixA.tex}      {\usepreamble\tex
+                                     \nopostamble
+                                     \from{uosdocs.dtx}{appendix}}
+          \file{figure.eps}         {\usepreamble\eps
+                                     \nopostamble
+                                     \from{uosdocs.dtx}{figure}}
+          \file{Definitions.tex}    {\usepreamble\tex
+                                     \nopostamble
+                                     \from{uosdocs.dtx}{definitions}}
+          \file{UOS.bib}            {\usepreamble\bib
+                                     \nopostamble
+                                     \from{uosdocs.dtx}{references}}
+          \file{uos.bst}            {\usepreamble\bst
+                                     \nopostamble
+                                     \from{uosdocs.dtx}{bst}}
+         }
+
+\endbatchfile
