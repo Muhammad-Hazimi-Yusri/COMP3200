@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net" modified="2023-12-10T23:18:29.842Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0" etag="dgdx3p-8yD_xKN87nJ5g" version="22.1.7" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="2066" dy="1153" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="BvF2MIHVnrdMo-qsMsQz-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="BvF2MIHVnrdMo-qsMsQz-3" target="BvF2MIHVnrdMo-qsMsQz-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BvF2MIHVnrdMo-qsMsQz-3" value="Start" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="50" y="30" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BvF2MIHVnrdMo-qsMsQz-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="BvF2MIHVnrdMo-qsMsQz-6" target="BvF2MIHVnrdMo-qsMsQz-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BvF2MIHVnrdMo-qsMsQz-6" value="Camera Capture&lt;br&gt;Pictures and Video" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;arcSize=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="50" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BvF2MIHVnrdMo-qsMsQz-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="BvF2MIHVnrdMo-qsMsQz-8" target="BvF2MIHVnrdMo-qsMsQz-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BvF2MIHVnrdMo-qsMsQz-8" value="Transfer Data&lt;br&gt;to PC from&lt;br&gt;SD Card" style="shape=box;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;arcSize=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="50" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BvF2MIHVnrdMo-qsMsQz-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="BvF2MIHVnrdMo-qsMsQz-10" target="BvF2MIHVnrdMo-qsMsQz-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BvF2MIHVnrdMo-qsMsQz-10" value="Video Processing Pipeline on Windows PC" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;arcSize=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="230" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BvF2MIHVnrdMo-qsMsQz-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="BvF2MIHVnrdMo-qsMsQz-12" target="BvF2MIHVnrdMo-qsMsQz-15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BvF2MIHVnrdMo-qsMsQz-12" value="Run&lt;br&gt;&amp;nbsp;VR Software on OpenXR capable machines" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;arcSize=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="230" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BvF2MIHVnrdMo-qsMsQz-15" value="End" style="whiteSpace=wrap;html=1;rounded=1;arcSize=19;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="230" y="30" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
