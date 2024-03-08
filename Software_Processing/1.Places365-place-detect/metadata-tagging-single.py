@@ -34,6 +34,8 @@ def update_description(image_path, prediction):
     try:
         piexif.insert(exif_bytes, image_path)
         print("Description updated successfully.")
+        print("Prediction is "+ str(label))
+        print("Updated image description is " + str(exif_data['0th'][piexif.ImageIFD.ImageDescription]))
     except Exception as e:
         print(f"Error updating description: {e}")
 
