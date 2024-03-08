@@ -114,7 +114,7 @@ if __name__ == "__main__":
     output_dir = "output"
 
     # Stitch videos
-    #stitch_videos(output_dir)
+    stitch_videos(output_dir)
 
     # Stitch images
     stitch_images(output_dir)
