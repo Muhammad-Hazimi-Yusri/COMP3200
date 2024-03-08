@@ -58,8 +58,8 @@ def stitch_images(output_dir):
         os.makedirs(output_image_dir)
 
     # Iterate over the image files in the img0 and img2 subdirectories
-    img0_dir = os.path.join("images", "img0")
-    img2_dir = os.path.join("images", "img2")
+    img0_dir = os.path.join(samples_path, "images", "img0")
+    img2_dir = os.path.join(samples_path, "images", "img2")
     for filename in os.listdir(img0_dir):
         if filename.endswith(".jpg"):
             # Get the input image paths
@@ -114,7 +114,7 @@ if __name__ == "__main__":
     output_dir = "output"
 
     # Stitch videos
-    stitch_videos(output_dir)
+    #stitch_videos(output_dir)
 
     # Stitch images
     stitch_images(output_dir)
