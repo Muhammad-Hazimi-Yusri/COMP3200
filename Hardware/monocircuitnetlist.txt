@@ -1,6 +1,0 @@
-* Netlist created with www.circuit-diagram.org
-* Mono Camera
-'microcontroller #1:0 #0:1 #2:2 header=MAX4466 Microphone sz=4 p0=VCC p1=GND p2=OUT p3= p4= p5= p6= p7= p8= p9= p10= p11= p12= p13= p14= p15= p16= p17= p18= p19= p20= p21= p22= p23= p24= p25= p26= p27= p28= p29= p30= p31= p32= p33= p34= p35= p36= p37= p38= p39=
-'microcontroller #1:3 #3:3 #5:3 #4:1 #2:4 #0:5 header=SD CARD sz=6 p0=CS p1=SCK p2=MOSI p3=MISO p4=VCC p5=GND p6= p7= p8= p9= p10= p11= p12= p13= p14= p15= p16= p17= p18= p19= p20= p21= p22= p23= p24= p25= p26= p27= p28= p29= p30= p31= p32= p33= p34= p35= p36= p37= p38= p39=
-'microcontroller #7:6 #6:7 #5:1 #4:8 #3:9 #2:10 #1:11 #0:12 header=5MP OV5642 sz=8 p0=CS p1=MOSI p2=MISO p3=SCLK p4=GND p5=+5V p6=SDA p7=SCL p8= p9= p10= p11= p12= p13= p14= p15= p16= p17= p18= p19= p20= p21= p22= p23= p24= p25= p26= p27= p28= p29= p30= p31= p32= p33= p34= p35= p36= p37= p38= p39=
-'microcontroller #25:0 #17:2 #34:3 #30:3 #28:4 #26:3 #32:5 #22:6 #20:7 #9:1 #4:8 #6:9 #10:10 #8:11 #12:12 header=Raspberry Pi Pico sz=40 p0=GP0 p1=VBUS p2=GP1 p3=VSYS p4=GND p5=GND p6=GP2 p7=3V3_EN p8=GP3 p9=3V3_OUT p10=GP4 p11=ADC_VREF p12=GP5 p13=GP28 p14=GND p15=GND p16=GP6 p17=GP27 p18=GP7 p19=GP26 p20=GP8 p21=RUN p22=GP9 p23=GP22 p24=GND p25=GND p26=GP10 p27=GP21 p28=GP11 p29=GP20 p30=GP12 p31=GP19 p32=GP13 p33=GP18 p34=GND p35=GND p36=GP14 p37=GP17 p38=GP15 p39=GP16

@@ -1,0 +1,222 @@
+[gd_scene load_steps=14 format=3 uid="uid://dqs5k7nfhcga2"]
+
+[ext_resource type="Script" path="res://Tools/FileBrowser/FileBrowser.gd" id="1_rj1fn"]
+[ext_resource type="Texture2D" uid="uid://7r10bcu2iwgn" path="res://Tools/FileBrowser/icons/plain-arrow-back.png" id="2_jaqqw"]
+[ext_resource type="Texture2D" uid="uid://btm08ci1yx1tb" path="res://Tools/FileBrowser/icons/plain-arrow-back-inv.png" id="3_pu0kk"]
+[ext_resource type="Texture2D" uid="uid://dsfm2uep1penl" path="res://Tools/FileBrowser/icons/plain-arrow-front.png" id="4_g6s7p"]
+[ext_resource type="Texture2D" uid="uid://b3mjks3qj85jo" path="res://Tools/FileBrowser/icons/plain-arrow-front-inv.png" id="5_6diq1"]
+[ext_resource type="Texture2D" uid="uid://c54qugmmdedyt" path="res://Tools/FileBrowser/icons/plain-arrow-up.png" id="6_doc8f"]
+[ext_resource type="Texture2D" uid="uid://7i2hrnnvkh6w" path="res://Tools/FileBrowser/icons/plain-arrow-up-inv.png" id="7_wcm3y"]
+[ext_resource type="Texture2D" uid="uid://c8rs82fuu4t6t" path="res://Tools/FileBrowser/icons/magnifying-glass.png" id="8_wvax0"]
+[ext_resource type="Texture2D" uid="uid://d3v823g2vfe8j" path="res://Tools/FileBrowser/icons/magnifying-glass-inv.png" id="9_u6lsy"]
+[ext_resource type="Texture2D" uid="uid://c1080gxcrw2o0" path="res://Tools/FileBrowser/icons/hamburger-menu.png" id="10_ul4vh"]
+[ext_resource type="Texture2D" uid="uid://bcgmmd3jdh0fm" path="res://Tools/FileBrowser/icons/hamburger-menu-inv.png" id="11_w8oit"]
+[ext_resource type="Texture2D" uid="uid://hlyilieyvhu8" path="res://Tools/FileBrowser/icons/cancel.png" id="12_t2bee"]
+[ext_resource type="Texture2D" uid="uid://dh2ij5spw8lxc" path="res://Tools/FileBrowser/icons/cancel-inv.png" id="13_tjvkn"]
+
+[node name="FileBrowser" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rj1fn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0196078, 0.0196078, 0.0196078, 0.980392)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="MarginContainer1" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer1"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="BackButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/MarginContainer1/HBoxContainer"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("2_jaqqw")
+texture_pressed = ExtResource("3_pu0kk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ForwardButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/MarginContainer1/HBoxContainer"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("4_g6s7p")
+texture_pressed = ExtResource("5_6diq1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="UpButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/MarginContainer1/HBoxContainer"]
+custom_minimum_size = Vector2(40, 60)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("6_doc8f")
+texture_pressed = ExtResource("7_wcm3y")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 5
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+color = Color(0.219608, 0.219608, 0.219608, 0.901961)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/MarginContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PathContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer2/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="SearchButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/MarginContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("8_wvax0")
+texture_pressed = ExtResource("9_u6lsy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="OptionsButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/MarginContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("10_ul4vh")
+texture_pressed = ExtResource("11_w8oit")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CloseButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/MarginContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("12_t2bee")
+texture_pressed = ExtResource("13_tjvkn")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="HSplitContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="MarginContainer1" type="MarginContainer" parent="VBoxContainer/HSplitContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 15
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HSplitContainer/MarginContainer1"]
+layout_mode = 2
+color = Color(0.219608, 0.219608, 0.219608, 0.901961)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HSplitContainer/MarginContainer1"]
+layout_mode = 2
+
+[node name="ShortcutsContainer" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/MarginContainer1/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HSplitContainer/MarginContainer2"]
+layout_mode = 2
+color = Color(0.219608, 0.219608, 0.219608, 0.901961)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HSplitContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HSplitContainer/MarginContainer2/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="DirectoryContentsContainer" type="GridContainer" parent="VBoxContainer/HSplitContainer/MarginContainer2/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 7
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer1/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer1/HBoxContainer/ForwardButton" to="." method="_on_forward_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer1/HBoxContainer/UpButton" to="." method="_on_up_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_mouse_click_detect_timer_timeout"]

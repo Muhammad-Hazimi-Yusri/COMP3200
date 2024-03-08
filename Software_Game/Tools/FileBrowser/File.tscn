@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpy6rhpweyevo"]
+
+[ext_resource type="Script" path="res://Tools/FileBrowser/File.gd" id="1_f5qxr"]
+[ext_resource type="Texture2D" path="res://Tools/FileBrowser/icons/WHITE.png" id="2_qjhan"]
+
+[node name="File" type="MarginContainer"]
+custom_minimum_size = Vector2(180, 170)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_f5qxr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_qjhan")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FileName" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
