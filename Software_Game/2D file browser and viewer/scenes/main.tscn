@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://boqd0j4xcpio4"]
+[gd_scene load_steps=5 format=3 uid="uid://boqd0j4xcpio4"]
 
 [ext_resource type="PackedScene" uid="uid://hhal3nt4080m" path="res://scenes/file_open.tscn" id="1_7k0lu"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_n1kbr"]
+[ext_resource type="PackedScene" uid="uid://2q0f4st6n2p1" path="res://scenes/playback_controls.tscn" id="3_pj77f"]
+[ext_resource type="Script" path="res://scripts/Screen.gd" id="4_88qjp"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -43,6 +45,32 @@ offset_right = -10.0
 offset_bottom = 42.0
 grow_horizontal = 0
 text = "X"
+
+[node name="PlaybackControls" parent="." instance=ExtResource("3_pj77f")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="Screen" type="TextureRect" parent="PlaybackControls"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.932099
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_88qjp")
+metadata/_edit_use_anchors_ = true
+
+[node name="VideoPlayer" type="VideoStreamPlayer" parent="PlaybackControls/Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
 
 [connection signal="open" from="file open" to="." method="_on_file_open_dialog_open"]
 [connection signal="pressed" from="ImageDisplay/image_disp_button" to="." method="_on_image_disp_button_pressed"]

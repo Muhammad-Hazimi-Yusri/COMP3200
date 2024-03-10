@@ -8,3 +8,7 @@ var pinned=[
 	["Pictures", OS.SYSTEM_DIR_PICTURES],
 	["Movies", OS.SYSTEM_DIR_MOVIES]
 ]
+
+signal play
+signal stop 
+signal pause

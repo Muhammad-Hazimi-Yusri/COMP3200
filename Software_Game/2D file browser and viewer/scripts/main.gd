@@ -2,6 +2,7 @@ extends Control
 
 @onready var file_open_dialog = $"file open"
 @onready var image_display = $ImageDisplay
+@onready var video_player = $PlaybackControls/Screen/VideoPlayer
 
 func _ready():
 	pass
@@ -16,7 +17,10 @@ func _on_file_open_dialog_open(path: String):
 		image_display.show()
 		print_debug("HI")
 	elif path.get_extension() == "ogv":
+		$PlaybackControls/Screen/VideoPlayer.stream = load(path)
+		$PlaybackControls.show()
 		pass
+
 
 
 func _on_image_disp_button_pressed():
