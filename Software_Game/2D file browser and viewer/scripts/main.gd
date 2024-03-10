@@ -15,7 +15,7 @@ func _on_file_open_dialog_open(path: String):
 		image_display.texture = texture
 		image_display.show()
 		print_debug("HI")
-	else if path.get_extension() == "ogv":
+	elif path.get_extension() == "ogv":
 		pass
 
 
