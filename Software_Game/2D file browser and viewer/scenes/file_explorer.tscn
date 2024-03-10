@@ -22,6 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.392157, 0.498039, 0.745098, 1)
 script = ExtResource("1_iqnrs")
+metadata/_edit_use_anchors_ = true
 
 [node name="beauty" type="Control" parent="."]
 layout_mode = 1
@@ -59,14 +60,14 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -919.0
-offset_top = 11.0
-offset_right = -14.0
-offset_bottom = 503.0
+offset_left = -905.0
+offset_bottom = 492.0
 grow_horizontal = 0
 
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 columns = 3
 
 [node name="pinned" type="ScrollContainer" parent="."]

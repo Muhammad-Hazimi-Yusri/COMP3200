@@ -33,6 +33,7 @@ func open_folder(folder_name:String):
 	if file:
 		path = path.get_base_dir()
 	path = path + "/" + folder_name
+	print_debug("Folder opened!")
 	set_layout()
 	
 func open_file(file_name:String):
@@ -46,20 +47,40 @@ func set_layout():
 	file = false
 	Npath.text = path
 	for i in cont.get_children(): i.queue_free()
+	
 	var dir=DirAccess.open(path)
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
+
 	while file_name != "":
-		var nBut = Button.new()
-		nBut.text = file_name
-		cont.add_child(nBut)
 		if dir.current_is_dir():
+			var nBut = Button.new()
+			nBut.text = file_name
+			cont.add_child(nBut)
 			nBut.pressed.connect(open_folder.bind(file_name))
 			nBut.add_theme_stylebox_override("normal", load("res://folder_box.tres"))
 		else:
+			var file_container = VBoxContainer.new()
+			cont.add_child(file_container)
+
+			var texture_rect = TextureRect.new()
+			file_container.add_child(texture_rect)
+
+			if file_name.get_extension() in limited:
+				var image_texture = Image.load_from_file(path + "/" + file_name)
+				var scaled_texture = ImageTexture.create_from_image(image_texture)
+				scaled_texture.set_size_override(Vector2i(128, 128))
+				texture_rect.texture = scaled_texture
+
+			var nBut = Button.new()
+			nBut.text = file_name
+			file_container.add_child(nBut)
 			nBut.pressed.connect(open_file.bind(file_name))
-			if limited.size() > 0:	
-				if !file_name.get_extension() in limited: nBut.queue_free()
+
+			if limited.size() > 0:
+				if !file_name.get_extension() in limited:
+					file_container.queue_free()
+
 		file_name = dir.get_next()
 
 func _on_up_pressed():
