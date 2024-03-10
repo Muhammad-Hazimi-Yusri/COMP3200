@@ -30,18 +30,18 @@ def stitch_videos(output_dir):
             output_path = os.path.join(output_video_dir, f"stitched_{filename.replace('_vid0', '').replace('_vid2', '')}")
 
             # Define the ffmpeg command to stitch the videos side by side
+            # Define the ffmpeg command to stitch the videos side by side
             ffmpeg_command = [
                 "ffmpeg",
                 "-i", vid0_path,
                 "-i", vid2_path,
                 "-filter_complex", "[0:v][1:v]hstack=inputs=2",
-                "-c:v", "libx264",
-                "-preset", "fast",
-                "-crf", "23",
+                "-c:v", "libtheora",  # Use Theora codec for .ogv
+                "-qscale:v", "7",  # Set quality scale for Theora codec
                 "-an",  # Disable audio
                 "-map_metadata", "0:g:0",  # Copy metadata from the first input file
                 "-y",  # Overwrite output file without asking
-                output_path
+                output_path.replace(".mkv", ".ogv")  # Change output file extension to .ogv
             ]
 
             # Run ffmpeg command
@@ -111,7 +111,7 @@ def stitch_images(output_dir):
 
 if __name__ == "__main__":
     # Path to output directory
-    output_dir = "output"
+    output_dir = samples_path + "/output"
 
     # Stitch videos
     stitch_videos(output_dir)

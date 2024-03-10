@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://boqd0j4xcpio4"]
+
+[ext_resource type="PackedScene" uid="uid://hhal3nt4080m" path="res://scenes/file_open.tscn" id="1_7k0lu"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_n1kbr"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_n1kbr")
+
+[node name="file open" parent="." instance=ExtResource("1_7k0lu")]
+layout_mode = 1
+offset_left = 134.0
+offset_top = 252.0
+offset_right = -76.0
+offset_bottom = 374.0
+Title = "Open .jpeg and .mkv"
+limited = ["jpg", "mkv"]
+
+[node name="image_viewer" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="video_player" type="VideoStreamPlayer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
