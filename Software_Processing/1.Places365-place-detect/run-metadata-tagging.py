@@ -12,6 +12,11 @@ def make_prediction_request(file_path):
     headers = {'accept': 'application/json'}
     response = requests.post(url, files=files, headers=headers)
     print(response.json)
+        # Write prediction to JSON file
+    prediction_json_path = os.path.splitext(file_path)[0] + "_prediction.json"
+    with open(prediction_json_path, 'w') as json_file:
+        json.dump(response.json(), json_file, indent=4)
+    
     return response.json()
 
 def update_image_metadata(image_path, prediction):
@@ -56,6 +61,12 @@ def update_video_metadata(video_path, prediction_list):
             temp_file = f"temp_{idx}.jpg"
             cv2.imwrite(temp_file, frame)
             prediction = make_prediction_request(temp_file)
+            # Write prediction to JSON file
+            prediction_json_path = os.path.splitext(video_path)[0] + "_prediction.json"
+            with open(prediction_json_path, 'a') as json_file: # append instead of overwriting
+                json.dump(prediction, json_file, indent=4)
+    
+
             label = prediction["predictions"][0]["label"]
             probability = prediction["predictions"][0]["probability"]
             description = f"{label} ({probability:.2f})"

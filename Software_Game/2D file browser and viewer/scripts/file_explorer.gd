@@ -67,11 +67,29 @@ func set_layout():
 			file_container.add_child(texture_rect)
 
 			if file_name.get_extension() in limited:
-				var image_texture = Image.load_from_file(path + "/" + file_name)
-				var scaled_texture = ImageTexture.create_from_image(image_texture)
-				scaled_texture.set_size_override(Vector2i(128, 128))
-				texture_rect.texture = scaled_texture
 
+				if file_name.get_extension() == "jpg" or file_name.get_extension() == "png":
+					# Image file handling
+					var image_texture = ImageTexture.create_from_image(Image.load_from_file(path + "/" + file_name))
+					image_texture.set_size_override(Vector2i(128, 128))
+					texture_rect.texture = image_texture
+				elif file_name.get_extension() == "ogv":
+					# Video file handling
+					#print_debug("Video is here")
+					var hidden_screen = TextureRect.new()
+					cont.add_child(hidden_screen)
+					var video_player = VideoStreamPlayer.new()
+					hidden_screen.add_child(video_player)
+					hidden_screen.hide()
+					video_player.stream = load(path + "/" + file_name)
+					video_player.play()
+					await get_tree().create_timer(0.1).timeout  # Wait for the first frame to be rendered
+					var thumbnail = video_player.get_video_texture().get_image()
+					var thumbnail_texture = ImageTexture.create_from_image(thumbnail)
+					thumbnail_texture.set_size_override(Vector2i(128, 128))
+					texture_rect.texture = thumbnail_texture
+					video_player.queue_free()
+					
 			var nBut = Button.new()
 			nBut.text = file_name
 			file_container.add_child(nBut)

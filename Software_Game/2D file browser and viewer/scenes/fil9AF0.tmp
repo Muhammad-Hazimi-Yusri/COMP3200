@@ -1,0 +1,227 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8n552riysv8"]
+
+[ext_resource type="Script" path="res://scripts/file_explorer.gd" id="1_iqnrs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fgn0i"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xdson"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="file explorer" type="ColorRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.392157, 0.498039, 0.745098, 1)
+script = ExtResource("1_iqnrs")
+metadata/_edit_use_anchors_ = true
+
+[node name="beauty" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="beauty"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 181.0
+offset_right = 217.0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="beauty"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 184.0
+offset_top = -127.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -905.0
+offset_bottom = 492.0
+grow_horizontal = 0
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+
+[node name="pinned" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 94.0
+offset_right = 179.0
+grow_vertical = 2
+
+[node name="pinned_container" type="GridContainer" parent="pinned"]
+layout_mode = 2
+
+[node name="special" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 173.0
+offset_bottom = 50.0
+
+[node name="pin" type="Button" parent="special"]
+layout_mode = 2
+text = "pin
+"
+
+[node name="new_folder" type="Button" parent="special"]
+layout_mode = 2
+text = "new folder"
+
+[node name="up" type="Button" parent="special"]
+layout_mode = 2
+text = "up"
+
+[node name="name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 582.0
+offset_right = 282.0
+offset_bottom = 608.0
+text = "Path"
+
+[node name="path" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 291.0
+offset_top = -69.0
+offset_right = -79.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="actions" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1085.0
+offset_top = 577.0
+offset_right = 1142.0
+offset_bottom = 643.0
+
+[node name="open" type="Button" parent="actions"]
+layout_mode = 2
+text = "open"
+
+[node name="cancel" type="Button" parent="actions"]
+layout_mode = 2
+text = "cancel"
+
+[node name="add_folder" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 129.0
+offset_top = -48.0
+offset_right = -144.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.788235, 1, 1, 1)
+
+[node name="name" type="Label" parent="add_folder"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 31.0
+offset_right = 43.0
+offset_bottom = 57.0
+text = "path
+"
+label_settings = SubResource("LabelSettings_fgn0i")
+
+[node name="title" type="Label" parent="add_folder"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -73.0
+offset_right = 73.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Create new folder?"
+label_settings = SubResource("LabelSettings_xdson")
+
+[node name="newname" type="LineEdit" parent="add_folder"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -15.5
+offset_right = -73.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="addf" type="Button" parent="add_folder"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -22.5
+offset_right = -15.0
+offset_bottom = 8.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "add"
+
+[node name="cancelf" type="Button" parent="add_folder"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 13.5
+offset_right = -7.0
+offset_bottom = 44.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "cancel"
+
+[connection signal="pressed" from="special/pin" to="." method="_on_pin_pressed"]
+[connection signal="pressed" from="special/new_folder" to="." method="_on_new_folder_pressed"]
+[connection signal="pressed" from="special/up" to="." method="_on_up_pressed"]
+[connection signal="text_submitted" from="path" to="." method="_on_path_text_submitted"]
+[connection signal="pressed" from="actions/open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="actions/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="add_folder/addf" to="." method="_on_addf_pressed"]
+[connection signal="pressed" from="add_folder/cancelf" to="." method="_on_cancelf_pressed"]

@@ -16,6 +16,8 @@ func _on_file_open_dialog_open(path: String):
 		image_display.texture = texture
 		image_display.show()
 		print_debug("HI")
+		#var metadata = image.get_data().get_string_from_ascii()
+		#print_debug("Metadata:"+metadata)
 	elif path.get_extension() == "ogv":
 		$PlaybackControls/Screen/VideoPlayer.stream = load(path)
 		$PlaybackControls.show()
