@@ -39,8 +39,8 @@ func open_folder(folder_name:String):
 func open_file(file_name:String):
 	if file:
 		path = path.get_base_dir()
-	path = path + "/" + file_name
-	Npath.text = path
+	#path = path + "/" + file_name # commented and modifief line below as fix for crash from recalling videoplayer.load at wrong path again for some reason at line 88
+	Npath.text = path + "/" + file_name
 	file = true
 
 func set_layout():
@@ -69,25 +69,32 @@ func set_layout():
 			if file_name.get_extension() in limited:
 
 				if file_name.get_extension() == "jpg" or file_name.get_extension() == "png":
+					
 					# Image file handling
 					var image_texture = ImageTexture.create_from_image(Image.load_from_file(path + "/" + file_name))
 					image_texture.set_size_override(Vector2i(128, 128))
 					texture_rect.texture = image_texture
+				
 				elif file_name.get_extension() == "ogv":
+					
 					# Video file handling
 					#print_debug("Video is here")
 					var hidden_screen = TextureRect.new()
 					cont.add_child(hidden_screen)
+					
 					var video_player = VideoStreamPlayer.new()
 					hidden_screen.add_child(video_player)
 					hidden_screen.hide()
 					video_player.stream = load(path + "/" + file_name)
 					video_player.play()
+					
 					await get_tree().create_timer(0.1).timeout  # Wait for the first frame to be rendered
+					
 					var thumbnail = video_player.get_video_texture().get_image()
 					var thumbnail_texture = ImageTexture.create_from_image(thumbnail)
 					thumbnail_texture.set_size_override(Vector2i(128, 128))
 					texture_rect.texture = thumbnail_texture
+					
 					video_player.queue_free()
 					
 			var nBut = Button.new()
