@@ -9,20 +9,15 @@ font_color = Color(0, 0, 0, 1)
 font_color = Color(0, 0, 0, 1)
 
 [node name="file explorer" type="ColorRect"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 color = Color(0.392157, 0.498039, 0.745098, 1)
 script = ExtResource("1_iqnrs")
-metadata/_edit_use_anchors_ = true
 
 [node name="beauty" type="Control" parent="."]
 layout_mode = 1
@@ -35,34 +30,39 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="beauty"]
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = -1
+anchor_left = 0.152778
+anchor_right = 0.184
 anchor_bottom = 1.0
-offset_left = 181.0
-offset_right = 217.0
+offset_right = 0.0319824
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="beauty"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = -1
+anchor_left = 0.167
+anchor_top = 0.815
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 184.0
-offset_top = -127.0
-offset_bottom = -99.0
+anchor_bottom = 0.839506
+offset_left = -0.384018
+offset_top = -8.12006
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -905.0
-offset_bottom = 492.0
+anchors_preset = -1
+anchor_left = 0.208333
+anchor_top = 0.0246914
+anchor_right = 0.986111
+anchor_bottom = 0.765432
 grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
 layout_mode = 2
@@ -72,21 +72,31 @@ columns = 3
 
 [node name="pinned" type="ScrollContainer" parent="."]
 layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_top = 94.0
-offset_right = 179.0
+anchors_preset = -1
+anchor_left = 0.014
+anchor_top = 0.086
+anchor_right = 0.146
+anchor_bottom = 0.938
+offset_left = -0.128
+offset_top = 0.271999
+offset_right = -0.192017
+offset_bottom = 2.17596
 grow_vertical = 2
 
 [node name="pinned_container" type="GridContainer" parent="pinned"]
 layout_mode = 2
 
 [node name="special" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 10.0
-offset_right = 173.0
-offset_bottom = 50.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.015
+anchor_right = 0.146
+anchor_bottom = 0.062
+offset_left = 0.48
+offset_top = 0.28
+offset_right = 4.80798
+offset_bottom = 7.824
 
 [node name="pin" type="Button" parent="special"]
 layout_mode = 2
@@ -102,32 +112,43 @@ layout_mode = 2
 text = "up"
 
 [node name="name" type="Label" parent="."]
-layout_mode = 0
-offset_left = 242.0
-offset_top = 582.0
-offset_right = 282.0
-offset_bottom = 608.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.227
+anchor_top = 0.918
+anchor_right = 0.227
+anchor_bottom = 0.918
+offset_left = -19.504
+offset_top = -12.864
+offset_right = 20.496
+offset_bottom = 13.136
 text = "Path"
 
 [node name="path" type="LineEdit" parent="."]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 291.0
-offset_top = -69.0
-offset_right = -79.0
-offset_bottom = -38.0
+anchors_preset = -1
+anchor_left = 0.253
+anchor_top = 0.894
+anchor_right = 0.931
+anchor_bottom = 0.941
+offset_left = -0.456024
+offset_top = -0.312012
+offset_right = 0.487915
+offset_bottom = 0.231995
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="actions" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 1085.0
-offset_top = 577.0
-offset_right = 1142.0
-offset_bottom = 643.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.967
+anchor_top = 0.941
+anchor_right = 0.967
+anchor_bottom = 0.941
+offset_left = -28.9841
+offset_top = -32.768
+offset_right = 28.0159
+offset_bottom = 33.232
 
 [node name="open" type="Button" parent="actions"]
 layout_mode = 2

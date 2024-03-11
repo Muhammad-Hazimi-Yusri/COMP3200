@@ -3,10 +3,15 @@
 [ext_resource type="Script" path="res://scripts/file_open.gd" id="1_3guuf"]
 
 [node name="file open" type="ColorRect"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_right = -210.0
-offset_bottom = 122.0
+anchors_preset = -1
+anchor_left = 0.111
+anchor_top = 0.395
+anchor_right = 0.889
+anchor_bottom = 0.583
+offset_left = 0.127991
+offset_top = 0.0399933
+offset_right = -0.128052
+offset_bottom = 0.216003
 grow_horizontal = 2
 color = Color(0, 0.643137, 0.647059, 1)
 script = ExtResource("1_3guuf")
@@ -14,12 +19,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="title" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -31.0
-offset_right = 31.0
-offset_bottom = 45.0
+anchors_preset = -1
+anchor_left = 0.465
+anchor_right = 0.535
+anchor_bottom = 0.328
+offset_left = 0.359985
+offset_right = -0.360016
+offset_bottom = 4.984
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 text = "Title
@@ -27,13 +33,15 @@ text = "Title
 
 [node name="name" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = -18.0
-offset_right = 75.0
-offset_bottom = 17.0
+anchors_preset = -1
+anchor_left = 0.018
+anchor_top = 0.369
+anchor_right = 0.062
+anchor_bottom = 0.59
+offset_left = -8.128
+offset_top = -3.018
+offset_right = 3.448
+offset_bottom = 5.02
 grow_vertical = 2
 theme_override_font_sizes/font_size = 22
 text = "path
@@ -41,27 +49,29 @@ text = "path
 
 [node name="path" type="LineEdit" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -388.0
-offset_top = -15.0
-offset_right = 356.0
-offset_bottom = 16.0
+anchors_preset = -1
+anchor_left = 0.071
+anchor_top = 0.393
+anchor_right = 0.897
+anchor_bottom = 0.59
+offset_left = -3.616
+offset_top = -1.946
+offset_right = 0.287964
+offset_bottom = 5.02
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -85.0
-offset_top = 11.0
-offset_right = -20.0
-offset_bottom = 112.0
+anchors_preset = -1
+anchor_left = 0.905
+anchor_top = 0.09
+anchor_right = 0.973
+anchor_bottom = 0.918
+offset_left = 0.119995
+offset_top = 0.0199995
+offset_right = 4.19196
+offset_bottom = 0.0039978
 grow_horizontal = 0
 
 [node name="browse" type="Button" parent="VBoxContainer"]

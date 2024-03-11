@@ -22,6 +22,10 @@ func _on_play_video():
 	#$VideoPlayer.stream = load("E:/OneDrive - University of Southampton/COURSES/Y3/COMP3200 Individual Project/Software_Processing/Combined-pipeline/Samples-testing-8-march/output/videos/test.ogv")  # Replace with your video file path
 	$VideoPlayer.show()
 	self.show()
+	
+	#resize to fit current window size
+	$Screen
+	
 	$VideoPlayer.play()
 	
 	# Wait 0.1 seconds then connect the video texture to the surface

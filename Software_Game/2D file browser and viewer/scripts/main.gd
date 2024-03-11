@@ -8,11 +8,15 @@ func _ready():
 	pass
 
 func _on_file_open_dialog_open(path: String):
+	var window_size = get_viewport_rect().size
+	print_debug("Window size is: x="+str(window_size.x)+", y="+str(window_size.y))
 	if path.get_extension() == "jpg":
 		var image = Image.load_from_file(path)
 		var texture = ImageTexture.create_from_image(image)
 		print_debug("path is:" + path)
 		#var texture = load("res://Sample-JPEG-Image-File-Download-scaled.jpg")
+		texture.set_size_override(window_size)
+		
 		image_display.texture = texture
 		image_display.show()
 		print_debug("HI")
@@ -22,8 +26,6 @@ func _on_file_open_dialog_open(path: String):
 		$PlaybackControls/Screen/VideoPlayer.stream = load(path)
 		$PlaybackControls.show()
 		pass
-
-
 
 func _on_image_disp_button_pressed():
 	image_display.hide()

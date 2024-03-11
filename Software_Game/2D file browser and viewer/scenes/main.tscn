@@ -7,9 +7,14 @@
 
 [node name="main" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.111
+anchor_top = 0.395
+anchor_right = 0.889
+anchor_bottom = 0.593
+offset_left = -127.872
+offset_top = -255.96
+offset_right = 119.872
+offset_bottom = 263.736
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -19,12 +24,53 @@ metadata/_edit_use_anchors_ = true
 
 [node name="file open" parent="." instance=ExtResource("1_7k0lu")]
 layout_mode = 1
-offset_left = 134.0
-offset_top = 252.0
+anchor_left = 0.111964
+anchor_top = 0.0154321
+anchor_right = 0.961769
+anchor_bottom = 0.593
+offset_left = -0.0863342
+offset_top = 246.0
 offset_right = -76.0
-offset_bottom = 374.0
+offset_bottom = -0.264038
 Title = "Open .jpg and .ogv"
 limited = ["jpg", "ogv"]
+
+[node name="PlaybackControls" parent="." instance=ExtResource("3_pj77f")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.007
+offset_right = -0.00805664
+
+[node name="Screen" type="TextureRect" parent="PlaybackControls"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.017
+anchor_right = 0.958
+anchor_bottom = 0.938
+offset_left = -0.32
+offset_top = -3.016
+offset_right = 3.38391
+offset_bottom = 0.175964
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("4_88qjp")
+
+[node name="VideoPlayer" type="VideoStreamPlayer" parent="PlaybackControls/Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+expand = true
+metadata/_edit_use_anchors_ = true
 
 [node name="ImageDisplay" type="TextureRect" parent="."]
 visible = false
@@ -37,41 +83,17 @@ grow_vertical = 2
 
 [node name="image_disp_button" type="Button" parent="ImageDisplay"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -44.0
-offset_top = 11.0
-offset_right = -10.0
-offset_bottom = 42.0
+anchors_preset = -1
+anchor_left = 0.962
+anchor_top = 0.017
+anchor_right = 0.993
+anchor_bottom = 0.065
+offset_left = -0.224121
+offset_top = -0.0160007
+offset_right = 0.0639648
+offset_bottom = -0.120003
 grow_horizontal = 0
 text = "X"
-
-[node name="PlaybackControls" parent="." instance=ExtResource("3_pj77f")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-
-[node name="Screen" type="TextureRect" parent="PlaybackControls"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.932099
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("4_88qjp")
-metadata/_edit_use_anchors_ = true
-
-[node name="VideoPlayer" type="VideoStreamPlayer" parent="PlaybackControls/Screen"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-metadata/_edit_use_anchors_ = true
 
 [connection signal="open" from="file open" to="." method="_on_file_open_dialog_open"]
 [connection signal="pressed" from="ImageDisplay/image_disp_button" to="." method="_on_image_disp_button_pressed"]
