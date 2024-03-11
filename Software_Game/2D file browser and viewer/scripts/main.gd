@@ -21,9 +21,9 @@ func _on_file_open_dialog_open(path: String):
 		image_display.show()
 		
 		
-		var json_path = path.replace(".jpg","_predictions.json")
+		var json_path = path.replace(".jpg","_prediction.json")
 		
-		print_debug(".json metadata:" + str(load_json_data(json_path)))
+		print_debug(".json metadata:" + load_json_data(json_path))
 		#var metadata = image.get_data().get_string_from_ascii()
 		#print_debug("Metadata:"+metadata)
 	elif path.get_extension() == "ogv":
@@ -31,7 +31,7 @@ func _on_file_open_dialog_open(path: String):
 		$PlaybackControls.show()
 		pass
 
-func load_json_data(file_path: String) -> Dictionary:
+func load_json_data(file_path: String):
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	if file == null:
 		push_error("Failed to open JSON file: " + file_path)
@@ -41,17 +41,9 @@ func load_json_data(file_path: String) -> Dictionary:
 	file.close()
 
 	#var json_parser = JSONParseResult()
-	var data = JSON.parse_string(data_json)
+	
 
-	if data.error != OK:
-		push_error("Error parsing JSON file: " + data.error_string)
-		return {}
-
-	if typeof(data) != TYPE_DICTIONARY:
-		push_error("JSON data is not a dictionary")
-		return {}
-
-	return data
+	return data_json
 
 func _on_image_disp_button_pressed():
 	image_display.hide()
