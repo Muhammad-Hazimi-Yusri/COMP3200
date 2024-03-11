@@ -7,10 +7,10 @@ output_path = "output"
 
 # Function to convert filenames
 def convert_filename(filename):
-    match = re.match(r'^(image|video)_(\w+)_(\d{8}_\d{6})_prediction\.json$', filename)
+    match = re.match(r'^(image|video)_\w+_(\d{8}_\d{6})_prediction\.json$', filename)
     if match:
         prefix = "stitched_image" if match.group(1) == "image" else "stitched_video"
-        return f"{prefix}_{match.group(2)}_{match.group(3)}_prediction.json"
+        return f"{prefix}_{match.group(2)}_prediction.json"
     else:
         return filename
 
@@ -26,7 +26,6 @@ def find_json_files(directory):
 # Function to copy, rename, and move files
 def process_files(src_dir, dest_dir):
     json_files = find_json_files(src_dir)
-    print(src_dir)
     for src_file in json_files:
         filename = os.path.basename(src_file)
         new_filename = convert_filename(filename)
@@ -35,12 +34,10 @@ def process_files(src_dir, dest_dir):
         shutil.copy(src_file, dest_file)
 
 # Join current directory to output paths
-#output_path = os.path.join(os.getcwd(), output_path)
+samples_output_path = os.path.join(samples_path, output_path)
 
 # Copy, rename, and move image files
-process_files(os.path.join(samples_path, 'images', 'img0'), os.path.join(samples_path, output_path, 'images'))
+process_files(os.path.join(samples_path, 'images', 'img0'), os.path.join(samples_output_path, 'images'))
 
 # Copy, rename, and move video files
-process_files(os.path.join(samples_path, 'videos', 'vid0'), os.path.join(samples_path, output_path, 'videos'))
-
-print("Copy Finished!")
+process_files(os.path.join(samples_path, 'videos', 'vid0'), os.path.join(samples_output_path, 'videos'))
