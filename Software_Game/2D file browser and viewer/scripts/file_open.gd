@@ -5,7 +5,7 @@ extends ColorRect
 
 const file_explorer = preload("res://scenes/file_explorer.tscn")
 
-signal cancel
+signal quit
 signal open(path:String)
 
 # Called when the node enters the scene tree for the first time.
@@ -25,7 +25,5 @@ func _on_browse_pressed():
 func _on_open_pressed():
 	emit_signal("open", $path.text)
 
-
-
-func _on_cancel_pressed():
-	emit_signal("cancel")
+func _on_quit_pressed():
+	emit_signal("quit")

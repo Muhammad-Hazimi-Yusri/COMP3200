@@ -96,4 +96,5 @@ grow_horizontal = 0
 text = "X"
 
 [connection signal="open" from="file open" to="." method="_on_file_open_dialog_open"]
+[connection signal="quit" from="file open" to="." method="_on_file_open_quit"]
 [connection signal="pressed" from="ImageDisplay/image_disp_button" to="." method="_on_image_disp_button_pressed"]

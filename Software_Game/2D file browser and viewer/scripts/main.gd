@@ -29,3 +29,6 @@ func _on_file_open_dialog_open(path: String):
 
 func _on_image_disp_button_pressed():
 	image_display.hide()
+
+func _on_file_open_quit():
+	get_tree().quit() # quit game/godot app

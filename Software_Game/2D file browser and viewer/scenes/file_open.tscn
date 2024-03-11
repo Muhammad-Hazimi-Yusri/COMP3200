@@ -82,11 +82,11 @@ text = "browse"
 layout_mode = 2
 text = "open"
 
-[node name="cancel" type="Button" parent="VBoxContainer"]
+[node name="quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "cancel
+text = "quit
 "
 
 [connection signal="pressed" from="VBoxContainer/browse" to="." method="_on_browse_pressed"]
 [connection signal="pressed" from="VBoxContainer/open" to="." method="_on_open_pressed"]
-[connection signal="pressed" from="VBoxContainer/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
