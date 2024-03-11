@@ -109,36 +109,12 @@ def stitch_images(output_dir):
             except Exception as e:
                 print(f"Error stitching images: {e}")
 
-def copy_and_rename_json(directory):
-    # Create the output directory if it doesn't exist
-    output_json_dir = os.path.join(output_dir, "json")
-    if not os.path.exists(output_json_dir):
-        os.makedirs(output_json_dir)
-
-    # Iterate over all .json files in the directory
-    for root, _, files in os.walk(directory):
-        for file in files:
-            if file.endswith(".json"):
-                # Get the input .json file path
-                json_path = os.path.join(root, file)
-
-                # Define the output .json file path
-                new_filename = f"stitched_{file}"
-                output_path = os.path.join(output_json_dir, new_filename)
-
-                # Copy and rename the .json file
-                shutil.copyfile(json_path, output_path)
-                print(f".json file copied and renamed successfully: {output_path}")
-
 if __name__ == "__main__":
     # Path to output directory
     output_dir = samples_path + "/output"
 
     # Stitch videos
-    #stitch_videos(output_dir)
+    stitch_videos(output_dir)
 
     # Stitch images
-    #stitch_images(output_dir)
-
-    # Copy and rename .json files
-    copy_and_rename_json(output_dir)
+    stitch_images(output_dir)
