@@ -76,8 +76,16 @@ func set_layout(search_text: String =""):
 						var image_texture = ImageTexture.create_from_image(Image.load_from_file(path + "/" + file_name))
 						image_texture.set_size_override(Vector2i(128, 128))
 						texture_rect.texture = image_texture
-					
+						
+						# metadata filters dropdown
+						var image_metadata_counts = read_metadata_analysis(path + "/" + "image_output_json_analysis.txt")
+						populate_dropdown_with_filters(image_metadata_counts, $metadata_filters)
+						
 					elif file_name.get_extension() == "ogv":
+						
+						# metadata filters dropdown
+						var video_metadata_counts = read_metadata_analysis(path + "/" + "video_output_json_analysis.txt")
+						populate_dropdown_with_filters(video_metadata_counts, $metadata_filters)
 						
 						# Video file handling
 						#print_debug("Video is here")
@@ -90,8 +98,10 @@ func set_layout(search_text: String =""):
 						video_player.stream = load(path + "/" + file_name)
 						video_player.play()
 						
-						await get_tree().create_timer(0.1).timeout  # Wait for the first frame to be rendered
+						# commented as unfinished thumbnail loading causes crash when up button pressed for some reason
+						#await get_tree().create_timer(0.001).timeout  # Wait for the first frame to be rendered
 						
+						print_debug(str(video_player))
 						var thumbnail = video_player.get_video_texture().get_image()
 						var thumbnail_texture = ImageTexture.create_from_image(thumbnail)
 						thumbnail_texture.set_size_override(Vector2i(128, 128))
@@ -110,9 +120,51 @@ func set_layout(search_text: String =""):
 
 		file_name = dir.get_next()
 
-func _on_up_pressed():
+
+func read_metadata_analysis(file_path: String) -> Dictionary:
+	var metadata_counts = {}
+
+	# Open the file
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	if file == null:
+		push_error("Failed to open .txt file: " + file_path)
+		return metadata_counts
+	
+	# Read each line of the file
+	while !file.eof_reached():
+		var line = file.get_line().strip_edges()  # Read and strip leading/trailing whitespace
+		var parts = line.split(":")  # Split the line by ":"
+		
+		# Check if the line is properly formatted
+		if parts.size() == 2: 
+			var label = parts[0]  # Extract the label
+			var count = int(parts[1])# Extract the count and convert to integer
+			
+			# Add the label and count to the metadata_counts dictionary
+			metadata_counts[label] = count
+	
+	# Close the file
+	file.close()
+
+	return metadata_counts
+
+
+func populate_dropdown_with_filters(metadata_counts: Dictionary, dropdown: OptionButton):
+	# Clear existing options
+	dropdown.clear()
+	
+	
+	# Add an option for the total count
+	dropdown.add_item("no filter")
+
+	# Add filter options to the dropdown menu
+	for label in metadata_counts.keys():
+		dropdown.add_item(label + " [" + str(metadata_counts[label]) + "]")
+
+func _on_up_pressed(): # for some reason it crashes when videos dir/thumbnails not finished loading all
 	if file: path = path.get_base_dir()
 	path = path.get_base_dir()
+	$metadata_filters.clear()
 	set_layout()
 
 func _on_path_text_submitted(new_text:String):

@@ -7,12 +7,13 @@ output_path = "output"
 
 # Function to convert filenames
 def convert_filename(filename):
-    match = re.match(r'^(image|video)_\w+_(\d{8}_\d{6})_prediction\.json$', filename)
+    match = re.match(r'^(image|video)_\w+_(\d{8}_\d{6})_prediction(\d+)?\.json$', filename)
     if match:
         prefix = "stitched_image" if match.group(1) == "image" else "stitched_video"
-        return f"{prefix}_{match.group(2)}_prediction.json"
+        frame_number = match.group(3) if match.group(3) else ""
+        return f"{prefix}_{match.group(2)}_prediction{frame_number}.json"
     else:
-        return filename
+        return filename  # Default behavior, returning the same filename if not matching the pattern
 
 # Function to find all JSON files in a directory
 def find_json_files(directory):

@@ -6,6 +6,8 @@ import subprocess
 import shlex
 import cv2
 
+samples_path = "Samples-testing-8-march/"
+
 def make_prediction_request(file_path):
     url = "http://localhost:5000/model/predict"
     files = {'image': open(file_path, 'rb')}
@@ -62,8 +64,8 @@ def update_video_metadata(video_path, prediction_list):
             cv2.imwrite(temp_file, frame)
             prediction = make_prediction_request(temp_file)
             # Write prediction to JSON file
-            prediction_json_path = os.path.splitext(video_path)[0] + "_prediction.json"
-            with open(prediction_json_path, 'a') as json_file: # append instead of overwriting
+            prediction_json_path =  os.path.splitext(video_path)[0] + f"_prediction{idx}.json"
+            with open(prediction_json_path, 'w') as json_file: # append instead of overwriting
                 json.dump(prediction, json_file, indent=4)
     
 
@@ -100,7 +102,7 @@ def process_files(directory):
                 print(f"Unsupported file type: {file_extension}")
 
 # Process images in the 'images/img0' directory
-process_files('Samples-testing-8-march/images/img0')
+process_files(samples_path+'images/img0')
 
 # Process videos in the 'videos/vid0' directory
-process_files('Samples-testing-8-march/videos/vid0')
+process_files(samples_path+'videos/vid0')
