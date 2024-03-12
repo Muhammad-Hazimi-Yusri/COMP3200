@@ -76,7 +76,7 @@ anchors_preset = -1
 anchor_left = 0.014
 anchor_top = 0.123037
 anchor_right = 0.139056
-anchor_bottom = 0.428741
+anchor_bottom = 0.357753
 offset_left = -0.128
 offset_top = 0.271999
 offset_right = -0.192017
@@ -287,36 +287,59 @@ offset_bottom = -0.00200081
 text = "press enter to find"
 metadata/_edit_use_anchors_ = true
 
+[node name="repopulate" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -90.0
+offset_right = 121.0
+offset_bottom = -12.0
+grow_vertical = 2
+text = "Repopulate 
+drop down
+menu?"
+
+[node name="filter_check" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 88.0
+offset_top = -36.0
+offset_right = 132.0
+offset_bottom = -12.0
+grow_vertical = 2
+
+[node name="filters_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -12.0
+offset_right = 78.0
+offset_bottom = 14.0
+grow_vertical = 2
+text = "Filters:"
+
 [node name="metadata_filters" type="OptionButton" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0277778
-anchor_top = 0.509259
-anchor_right = 0.09
-anchor_bottom = 0.557
-offset_right = -57.68
-offset_bottom = -10.936
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 88.0
+offset_top = -12.0
+offset_right = 131.0
+offset_bottom = 8.0
+grow_vertical = 2
 item_count = 2
 fit_to_longest_item = false
 popup/item_0/text = "test"
 popup/item_0/id = 0
 popup/item_1/text = "2"
 popup/item_1/id = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="filters_label" type="Label" parent="metadata_filters"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0277778
-anchor_top = 0.46142
-anchor_right = 0.0740625
-anchor_bottom = 0.501049
-offset_left = -2.02778
-offset_top = -45.304
-offset_right = 47.5934
-offset_bottom = -20.5326
-text = "Filters:"
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="special/pin" to="." method="_on_pin_pressed"]
 [connection signal="pressed" from="special/new_folder" to="." method="_on_new_folder_pressed"]
@@ -327,3 +350,5 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="add_folder/addf" to="." method="_on_addf_pressed"]
 [connection signal="pressed" from="add_folder/cancelf" to="." method="_on_cancelf_pressed"]
 [connection signal="text_submitted" from="search_bar" to="." method="_on_search_bar_text_submitted"]
+[connection signal="toggled" from="filter_check" to="." method="_on_filter_check_toggled"]
+[connection signal="item_selected" from="metadata_filters" to="." method="_on_metadata_filters_item_selected"]
