@@ -6,7 +6,7 @@ import subprocess
 import shlex
 import cv2
 
-samples_path = "Samples-testing-8-march/"
+samples_path = "Samples-testing-12-march/"
 
 def make_prediction_request(file_path):
     url = "http://localhost:5000/model/predict"
@@ -53,32 +53,39 @@ def update_video_metadata(video_path, prediction_list):
         print(f"Video duration exceeds 30 seconds for {video_path}. Processing the first 30 seconds.")
         total_frames = int(fps * 30)
 
-    frame_indices = [int(total_frames * i / 5) for i in range(5)]
-    predictions = []
+    frame_indices = [0, 180, 360, 540, 720]
 
+    predictions = []
     for idx in frame_indices:
+        if idx >= total_frames:
+            break
+
         cap.set(cv2.CAP_PROP_POS_FRAMES, idx)
         ret, frame = cap.read()
+
         if ret:
             temp_file = f"temp_{idx}.jpg"
             cv2.imwrite(temp_file, frame)
             prediction = make_prediction_request(temp_file)
+
             # Write prediction to JSON file
-            prediction_json_path =  os.path.splitext(video_path)[0] + f"_prediction{idx}.json"
-            with open(prediction_json_path, 'w') as json_file: # append instead of overwriting
+            prediction_json_path = os.path.splitext(video_path)[0] + f"_prediction{idx}.json"
+            with open(prediction_json_path, 'w') as json_file:
+                # append instead of overwriting
                 json.dump(prediction, json_file, indent=4)
-    
 
             label = prediction["predictions"][0]["label"]
             probability = prediction["predictions"][0]["probability"]
             description = f"{label} ({probability:.2f})"
             predictions.append(description)
+
             os.remove(temp_file)
 
     cap.release()
 
     description = ', '.join(predictions)
     metadata_cmd = f"ffmpeg -i {shlex.quote(video_path)} -metadata description={shlex.quote(description)} -codec copy output.mkv"
+
     try:
         subprocess.run(shlex.split(metadata_cmd), check=True)
         os.replace('output.mkv', video_path)

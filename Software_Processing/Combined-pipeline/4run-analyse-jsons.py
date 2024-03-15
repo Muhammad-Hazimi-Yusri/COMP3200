@@ -18,10 +18,10 @@ def analyze_json_files(directory):
                             for prediction in predictions:
                                 label = prediction.get('label')
                                 prediction_counts[label] += 1
-                        else:
-                            # Different format for videos.json
-                            for label in data:
-                                prediction_counts[label['label']] += 1
+                        #else: # i think this is irrelevant and never runs anymore as I created multiple .json file for videos frames instead
+                        #    # Different format for videos.json 
+                        #    for label in data:
+                        #        prediction_counts[label['label']] += 1
                     except json.JSONDecodeError:
                         print(f"Error decoding JSON file: {file_path}")
 
@@ -33,7 +33,7 @@ def write_analysis_to_file(prediction_counts, output_file):
             f.write(f"{label}: {count}\n")
 
 # Define the path to the directory containing JSON files
-samples_path = "Samples-testing-8-march/output"
+samples_path = "Samples-testing-12-march/output"
 
 # Analyze JSON files in the images directory
 images_directory = os.path.join(samples_path, "images")

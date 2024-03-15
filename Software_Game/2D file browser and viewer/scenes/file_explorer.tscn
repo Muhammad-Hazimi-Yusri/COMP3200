@@ -292,14 +292,13 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 32.0
-offset_top = -90.0
-offset_right = 121.0
-offset_bottom = -12.0
+offset_left = 25.0
+offset_top = -76.0
+offset_right = 142.0
+offset_bottom = -24.0
 grow_vertical = 2
-text = "Repopulate 
-drop down
-menu?"
+text = "Start metadata 
+filter?"
 
 [node name="filter_check" type="CheckButton" parent="."]
 layout_mode = 1
@@ -307,9 +306,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 88.0
-offset_top = -36.0
+offset_top = -48.0
 offset_right = 132.0
-offset_bottom = -12.0
+offset_bottom = -24.0
 grow_vertical = 2
 
 [node name="filters_label" type="Label" parent="."]
@@ -336,9 +335,9 @@ offset_bottom = 8.0
 grow_vertical = 2
 item_count = 2
 fit_to_longest_item = false
-popup/item_0/text = "test"
+popup/item_0/text = "no filter"
 popup/item_0/id = 0
-popup/item_1/text = "2"
+popup/item_1/text = "test"
 popup/item_1/id = 1
 
 [connection signal="pressed" from="special/pin" to="." method="_on_pin_pressed"]

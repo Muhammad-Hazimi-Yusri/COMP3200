@@ -16,7 +16,9 @@ signal done(path:String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():    
-	path = OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
+	#path = OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
+	# use the output combine-pipeline folder as path for now!
+	path = "E:/OneDrive - University of Southampton/COURSES/Y3/COMP3200 Individual Project/Software_Processing/Combined-pipeline/Year2024"
 	set_layout()
 	for i in Globals.pinned:
 		add_pinned_button(i)
@@ -70,16 +72,33 @@ func set_layout(search_text: String ="", repopulate_dropdown: bool = false):
 			else:
 				var file_extension = file_name.get_extension()
 				if file_extension in limited:
-					var file_json = path + "/" + file_name.get_basename() + "_prediction.json"
-					print_debug(file_json)
-					#FileAccess.file_exists(file_json):
-					var predictions = read_metadata_file(file_json)
-					if selected_filter == "no filter" or selected_filter in predictions.keys():
-						print_debug("displaying files")
-						display_file(file_name, file_extension, cont)
-					else:
-						print_debug(predictions.keys())
-
+					print_debug("File extension is: " + file_extension)
+					if file_extension == "jpg":
+						var file_json = path + "/" + file_name.get_basename() + "_prediction.json"
+						print_debug(file_json)
+						#FileAccess.file_exists(file_json):
+						var predictions = read_metadata_file(file_json)
+						if selected_filter == "no filter" or selected_filter in predictions.keys():
+							print_debug("displaying files")
+							display_file(file_name, file_extension, cont)
+						else:
+							print_debug(predictions.keys())
+					elif file_extension == "ogv":
+						var base_name = file_name.get_basename()
+						var json_files = []
+						for i in range(0, 5):
+							var json_file = path + "/" + base_name + "_prediction" + str(i * 180) + ".json" #need to change the metadata frame to be in 0,180,360,540,720 etc
+							if FileAccess.file_exists(json_file):
+								json_files.append(json_file)
+						if json_files:
+							var predictions = {}
+							for json_file in json_files:
+								predictions.merge(read_metadata_file(json_file), true)
+							if selected_filter == "no filter" or selected_filter in predictions.keys():
+								print_debug("displaying files")
+								display_file(file_name, file_extension, cont)
+							else:
+								print_debug(predictions.keys())
 		file_name = dir.get_next()
 
 	# Update dropdown with filters

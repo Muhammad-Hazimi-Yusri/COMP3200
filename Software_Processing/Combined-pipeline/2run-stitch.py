@@ -4,7 +4,7 @@ from datetime import datetime
 import piexif
 from PIL import Image
 
-samples_path = "Samples-testing-8-march"
+samples_path = "Samples-testing-12-march"
 
 def stitch_videos(output_dir):
     # Create the output directory if it doesn't exist
