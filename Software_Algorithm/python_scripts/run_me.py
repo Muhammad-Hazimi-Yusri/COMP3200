@@ -9,11 +9,12 @@ use_webcam = False  # Set this to True if you want to use a USB webcam
 home_dir = "/home/chronohax/"
 video_dir = home_dir + "videos"
 image_dir = home_dir + "images"
+audio_dir = home_dir + "audio"
 vid0_dir = os.path.join(video_dir, "vid0")
 vid2_dir = os.path.join(video_dir, "vid2")
 img0_dir = os.path.join(image_dir, "img0")
 img2_dir = os.path.join(image_dir, "img2")
-for dir_path in [video_dir, image_dir, vid0_dir, vid2_dir, img0_dir, img2_dir]:
+for dir_path in [video_dir, image_dir, audio_dir, vid0_dir, vid2_dir, img0_dir, img2_dir]:
     os.makedirs(dir_path, exist_ok=True)
 
 while True:
@@ -24,6 +25,7 @@ while True:
     # Define filenames for each camera
     filename_vid0 = os.path.join(vid0_dir, f"video_vid0_{timestamp}")
     filename_vid2 = os.path.join(vid2_dir, f"video_vid2_{timestamp}")
+    filename_audio = os.path.join(audio_dir, f"audio_{timestamp}.wav")
 
     if use_webcam:
         # Define the FFmpeg commands for each USB webcam with optimized settings
@@ -34,9 +36,13 @@ while True:
         command_vid0 = f"rpicam-vid --camera 0 --width 1920 --height 1080 --framerate 30 -t 30000 --codec mjpeg -o  {filename_vid0}.mjpeg"
         command_vid2 = f"rpicam-vid --camera 1 --width 1920 --height 1080 --framerate 30 -t 30000 --codec mjpeg -o  {filename_vid2}.mjpeg"
 
+    # Define the arecord command to record audio from the USB microphone
+    command_audio = f"arecord -d 30 -f dat {filename_audio}"
+
     # Run the commands using subprocess.Popen() to start each process
     process_cam0 = subprocess.Popen(command_vid0, shell=True)
     process_cam2 = subprocess.Popen(command_vid2, shell=True)
+    process_audio = subprocess.Popen(command_audio, shell=True)
     print("Automated recording started for both cameras...")
 
     # Wait for both processes to finish
@@ -58,8 +64,8 @@ while True:
             command_img2 = f"ffmpeg -f v4l2 -framerate 30 -ss 1 -video_size 1280x720 -input_format mjpeg -i /dev/video2 -vframes 1 {filename_img2}"
         else:
             # Define the libcamera commands for the Raspberry Pi camera
-            command_img0 = f"libcamera-still -o {filename_img0}"
-            command_img2 = f"libcamera-still -o {filename_img2}"
+            command_img0 = f"rpicam-jpeg --camera 0 --width 4608 --height 2592 --quality 75 -o {filename_img0}"
+            command_img2 = f"rpicam-jpeg --camera 1 --width 4608 --height 2592 --quality 75 -o {filename_img2}"
 
         # Run the commands using subprocess.Popen() to capture images
         process_img0 = subprocess.Popen(command_img0, shell=True)

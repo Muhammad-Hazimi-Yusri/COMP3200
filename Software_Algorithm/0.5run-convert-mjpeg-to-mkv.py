@@ -23,6 +23,7 @@ def convert_mjpeg_to_mkv(input_dir):
                 "ffmpeg",
                 "-i", input_path,  # Input video file
                 "-c:v", "copy",  # Copy video stream without re-encoding
+                "-r", "30",  # Set the output framerate to 30 fps
                 "-f", "matroska",  # Output format: Matroska (MKV)
                 "-y",  # Overwrite output file without asking
                 output_path
