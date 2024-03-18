@@ -52,7 +52,7 @@ func open_file(file_name:String):
 	#path = path + "/" + file_name # commented and modifief line below as fix for crash from recalling videoplayer.load at wrong path again for some reason at line 88
 	Npath.text = path + "/" + file_name
 	file = true
-	
+			
 func set_layout(search_text: String ="", repopulate_dropdown: bool = false):
 	# reset file list array
 	Globals.file_list = []

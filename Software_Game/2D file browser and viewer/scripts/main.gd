@@ -82,6 +82,7 @@ func _on_next_pressed():
 	var next_path = main_path.get_base_dir() + "/" + next_filename
 	print_debug("Previous path is: " + next_path)
 	_on_file_open_dialog_open(next_path)
+	Globals.play.emit() #autoplay
 	
 
 
@@ -104,3 +105,4 @@ func _on_previous_pressed():
 	var previous_path = main_path.get_base_dir() + "/" + previous_filename
 	print_debug("Previous path is: " + previous_path)
 	_on_file_open_dialog_open(previous_path)
+	Globals.play.emit() #autoplay

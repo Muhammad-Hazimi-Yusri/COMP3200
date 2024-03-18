@@ -26,6 +26,7 @@ func _on_browse_pressed():
 
 func _on_open_pressed():
 	emit_signal("open", $path.text)
+	Globals.play.emit()
 
 func _on_quit_pressed():
 	emit_signal("quit")
