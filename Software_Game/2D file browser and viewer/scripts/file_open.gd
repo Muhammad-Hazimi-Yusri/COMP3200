@@ -20,6 +20,8 @@ func _on_browse_pressed():
 	get_parent().add_child(nExplor)
 	nExplor.limited = limited
 	nExplor.done.connect(new_path)
+	if DirAccess.open($path.text): # retain browse dir if its a DIR
+		nExplor.to_dir($path.text)
 
 
 func _on_open_pressed():

@@ -350,6 +350,94 @@ offset_right = 872.0
 offset_bottom = 346.0
 texture = ExtResource("2_kbvq7")
 
+[node name="DateFilter" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0138889
+anchor_top = 0.555556
+anchor_right = 0.111389
+anchor_bottom = 0.889161
+offset_right = -0.32
+offset_bottom = -0.176003
+
+[node name="YearLabel" type="Label" parent="DateFilter"]
+layout_mode = 2
+text = "Choose Year
+"
+
+[node name="YearButton" type="OptionButton" parent="DateFilter"]
+layout_mode = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "2024"
+popup/item_0/id = 0
+popup/item_1/text = "2023"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+
+[node name="MonthLabel" type="Label" parent="DateFilter"]
+layout_mode = 2
+text = "Choose Month
+"
+
+[node name="MonthButton" type="OptionButton" parent="DateFilter"]
+layout_mode = 2
+item_count = 12
+selected = 2
+popup/item_0/text = "January"
+popup/item_0/id = 0
+popup/item_1/text = "February"
+popup/item_1/id = 1
+popup/item_2/text = "March"
+popup/item_2/id = 2
+popup/item_3/text = "April"
+popup/item_3/id = 3
+popup/item_4/text = "May"
+popup/item_4/id = 4
+popup/item_4/disabled = true
+popup/item_5/text = "June"
+popup/item_5/id = 5
+popup/item_5/disabled = true
+popup/item_6/text = "July"
+popup/item_6/id = 6
+popup/item_6/disabled = true
+popup/item_7/text = "August"
+popup/item_7/id = 7
+popup/item_7/disabled = true
+popup/item_8/text = "September"
+popup/item_8/id = 8
+popup/item_8/disabled = true
+popup/item_9/text = "October"
+popup/item_9/id = 9
+popup/item_9/disabled = true
+popup/item_10/text = "November"
+popup/item_10/id = 10
+popup/item_10/disabled = true
+popup/item_11/text = "December"
+popup/item_11/id = 11
+popup/item_11/disabled = true
+
+[node name="WeekLabel" type="Label" parent="DateFilter"]
+layout_mode = 2
+text = "Choose Week"
+
+[node name="WeekButton" type="OptionButton" parent="DateFilter"]
+layout_mode = 2
+item_count = 4
+selected = 0
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "3"
+popup/item_2/id = 2
+popup/item_3/text = "4"
+popup/item_3/id = 3
+
+[node name="DateFilterButton" type="Button" parent="DateFilter"]
+layout_mode = 2
+text = "Go"
+
 [connection signal="pressed" from="special/pin" to="." method="_on_pin_pressed"]
 [connection signal="pressed" from="special/new_folder" to="." method="_on_new_folder_pressed"]
 [connection signal="pressed" from="special/up" to="." method="_on_up_pressed"]
@@ -361,3 +449,4 @@ texture = ExtResource("2_kbvq7")
 [connection signal="text_submitted" from="search_bar" to="." method="_on_search_bar_text_submitted"]
 [connection signal="toggled" from="filter_check" to="." method="_on_filter_check_toggled"]
 [connection signal="item_selected" from="metadata_filters" to="." method="_on_metadata_filters_item_selected"]
+[connection signal="pressed" from="DateFilter/DateFilterButton" to="." method="_on_date_filter_button_pressed"]

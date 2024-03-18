@@ -4,6 +4,8 @@ extends ColorRect
 @onready var pinned = $pinned/pinned_container
 @onready var Npath = $path
 
+var base_path = "E:/OneDrive - University of Southampton/COURSES/Y3/COMP3200 Individual Project/Software_Processing/Combined-pipeline/"
+
 # Add this variable to store the selected filter index
 var selected_filter_index = 0
 
@@ -18,7 +20,7 @@ signal done(path:String)
 func _ready():    
 	#path = OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
 	# use the output combine-pipeline folder as path for now!
-	path = "E:/OneDrive - University of Southampton/COURSES/Y3/COMP3200 Individual Project/Software_Processing/Combined-pipeline/Year2024"
+	path = base_path
 	set_layout()
 	for i in Globals.pinned:
 		add_pinned_button(i)
@@ -285,3 +287,12 @@ func _on_metadata_filters_item_selected(index):
 func _on_filter_check_toggled(button_pressed):
 	print_debug("filter check button is:" + str(button_pressed))
 	set_layout("", true)
+
+
+func _on_date_filter_button_pressed():
+	var year = $DateFilter/YearButton.get_item_text($DateFilter/YearButton.selected)
+	var month = $DateFilter/MonthButton.get_item_text($DateFilter/MonthButton.selected)
+	var week = $DateFilter/WeekButton.get_item_text($DateFilter/WeekButton.selected)
+	print_debug("Selected DateFilter is: " + year + month + week)
+	var date_path = base_path + "Year" + year + "/" + month + "/Week" + week
+	to_dir(date_path)
