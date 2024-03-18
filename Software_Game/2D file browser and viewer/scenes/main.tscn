@@ -24,13 +24,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="file open" parent="." instance=ExtResource("1_7k0lu")]
 layout_mode = 1
-anchor_left = 0.111964
-anchor_top = 0.0154321
-anchor_right = 0.961769
+anchor_left = 0.112
+anchor_right = 0.895
 anchor_bottom = 0.593
-offset_left = -0.0863342
-offset_top = 246.0
-offset_right = -76.0
+offset_left = -0.127518
+offset_right = 0.383606
 offset_bottom = -0.264038
 Title = "Open .jpg and .ogv"
 limited = ["jpg", "ogv"]
@@ -95,6 +93,53 @@ offset_bottom = -0.120003
 grow_horizontal = 0
 text = "X"
 
+[node name="Next" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.595021
+anchor_top = 2.75
+anchor_right = 0.644683
+anchor_bottom = 2.81327
+offset_left = -24.704
+offset_top = -1174.0
+offset_right = -24.5172
+offset_bottom = -1175.0
+text = "Next"
+metadata/_edit_use_anchors_ = true
+
+[node name="Previous" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.303482
+anchor_top = 2.75
+anchor_right = 0.387411
+anchor_bottom = 2.81337
+offset_left = 52.8169
+offset_top = -1174.0
+offset_right = 52.8014
+offset_bottom = -1175.06
+text = "Previous"
+metadata/_edit_use_anchors_ = true
+
+[node name="Disclaimer" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.111888
+anchor_top = 0.530864
+anchor_right = 1.48734
+anchor_bottom = 0.575494
+offset_right = -766.52
+offset_bottom = -2.92
+text = "Disclaimer: Previous/Next button only works when file is opened after the folder it is in is browsed first..."
+metadata/_edit_use_anchors_ = true
+
 [connection signal="open" from="file open" to="." method="_on_file_open_dialog_open"]
 [connection signal="quit" from="file open" to="." method="_on_file_open_quit"]
 [connection signal="pressed" from="ImageDisplay/image_disp_button" to="." method="_on_image_disp_button_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

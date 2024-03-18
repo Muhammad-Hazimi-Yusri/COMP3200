@@ -10,6 +10,9 @@ var pinned=[
 	#["Movies", OS.SYSTEM_DIR_MOVIES]
 ]
 
+#for indexing next/previous button
+var file_list = []
+
 signal play
 signal stop 
 signal pause

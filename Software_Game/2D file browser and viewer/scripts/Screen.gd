@@ -22,9 +22,9 @@ func _on_play_video():
 	#$VideoPlayer.stream = load("E:/OneDrive - University of Southampton/COURSES/Y3/COMP3200 Individual Project/Software_Processing/Combined-pipeline/Samples-testing-8-march/output/videos/test.ogv")  # Replace with your video file path
 	$VideoPlayer.show()
 	self.show()
+	get_node("%Disclaimer").hide()
 	
-	#resize to fit current window size
-	$Screen
+
 	
 	$VideoPlayer.play()
 	
@@ -37,6 +37,9 @@ func _on_stop_video():
 	$VideoPlayer.hide()
 	self.hide()
 	get_node("%PlaybackControls").hide()
+	get_node("%Next").hide()
+	get_node("%Previous").hide()
+	get_node("%Disclaimer").show()	
 	
 func _on_pause_video():
 	# alternate true or false for every button press

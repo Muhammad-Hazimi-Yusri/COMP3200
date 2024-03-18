@@ -35,12 +35,15 @@ func to_dir(new_path:String):
 	set_layout()
 
 func open_folder(folder_name:String):
+	$loading.show() # not working... the programs hangs at set_layout and hide instantly?
+	await get_tree().create_timer(0.01).timeout #ok this delay commands work now
 	if file:
 		path = path.get_base_dir()
 	path = path + "/" + folder_name
 	print_debug("Folder opened!")
-	set_layout()
-	
+	set_layout()	
+	$loading.hide()
+
 func open_file(file_name:String):
 	if file:
 		path = path.get_base_dir()
@@ -49,6 +52,8 @@ func open_file(file_name:String):
 	file = true
 	
 func set_layout(search_text: String ="", repopulate_dropdown: bool = false):
+	# reset file list array
+	Globals.file_list = []
 	file = false
 	Npath.text = path
 	for i in cont.get_children(): i.queue_free()
@@ -60,6 +65,7 @@ func set_layout(search_text: String ="", repopulate_dropdown: bool = false):
 	# Get the selected filter option
 	var selected_filter = $metadata_filters.get_item_text(selected_filter_index)
 	print_debug("Selected filter is:"+selected_filter)
+
 	
 	while file_name != "":
 		if search_text == "" or file_name.contains(search_text):
@@ -72,14 +78,14 @@ func set_layout(search_text: String ="", repopulate_dropdown: bool = false):
 			else:
 				var file_extension = file_name.get_extension()
 				if file_extension in limited:
-					print_debug("File extension is: " + file_extension)
+					#print_debug("File extension is: " + file_extension)
 					if file_extension == "jpg":
 						var file_json = path + "/" + file_name.get_basename() + "_prediction.json"
 						print_debug(file_json)
 						#FileAccess.file_exists(file_json):
 						var predictions = read_metadata_file(file_json)
 						if selected_filter == "no filter" or selected_filter in predictions.keys():
-							print_debug("displaying files")
+					#		print_debug("displaying files")
 							display_file(file_name, file_extension, cont)
 						else:
 							print_debug(predictions.keys())
@@ -95,12 +101,12 @@ func set_layout(search_text: String ="", repopulate_dropdown: bool = false):
 							for json_file in json_files:
 								predictions.merge(read_metadata_file(json_file), true)
 							if selected_filter == "no filter" or selected_filter in predictions.keys():
-								print_debug("displaying files")
+					#			print_debug("displaying files")
 								display_file(file_name, file_extension, cont)
 							else:
 								print_debug(predictions.keys())
 		file_name = dir.get_next()
-
+	
 	# Update dropdown with filters
 	var metadata_counts = {}
 	if repopulate_dropdown == true:
@@ -151,6 +157,9 @@ func display_file(file_name, file_extension, parent_container):
 
 	var nBut = Button.new()
 	nBut.text = file_name
+	# add file name to Globals file_list
+	Globals.file_list.append(file_name)
+	print_debug("Appending filelist")
 	file_container.add_child(nBut)
 	nBut.pressed.connect(open_file.bind(file_name))
 

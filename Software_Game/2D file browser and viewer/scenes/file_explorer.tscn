@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8n552riysv8"]
+[gd_scene load_steps=5 format=3 uid="uid://b8n552riysv8"]
 
 [ext_resource type="Script" path="res://scripts/file_explorer.gd" id="1_iqnrs"]
+[ext_resource type="Texture2D" uid="uid://dcu7axhkamelo" path="res://loading.png" id="2_kbvq7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fgn0i"]
 font_color = Color(0, 0, 0, 1)
@@ -339,6 +340,15 @@ popup/item_0/text = "no filter"
 popup/item_0/id = 0
 popup/item_1/text = "test"
 popup/item_1/id = 1
+
+[node name="loading" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 448.0
+offset_top = 208.0
+offset_right = 872.0
+offset_bottom = 346.0
+texture = ExtResource("2_kbvq7")
 
 [connection signal="pressed" from="special/pin" to="." method="_on_pin_pressed"]
 [connection signal="pressed" from="special/new_folder" to="." method="_on_new_folder_pressed"]
