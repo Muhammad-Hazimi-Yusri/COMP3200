@@ -25,6 +25,10 @@ Globals="*res://scripts/autoload/globals.gd"
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
+[godot_xr_tools]
+
+player/standard_height=1.65
+
 [rendering]
 
 renderer/rendering_method="mobile"

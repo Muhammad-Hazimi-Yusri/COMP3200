@@ -1,9 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://boqd0j4xcpio4"]
+[gd_scene load_steps=11 format=3 uid="uid://boqd0j4xcpio4"]
 
-[ext_resource type="PackedScene" uid="uid://hhal3nt4080m" path="res://scenes/file_open.tscn" id="1_7k0lu"]
+[ext_resource type="PackedScene" uid="uid://c40xd5voaarmt" path="res://scenes/file_open.tscn" id="1_7k0lu"]
 [ext_resource type="Script" path="res://scripts/2dmain.gd" id="1_n1kbr"]
 [ext_resource type="PackedScene" uid="uid://2q0f4st6n2p1" path="res://scenes/playback_controls.tscn" id="3_pj77f"]
+[ext_resource type="Shader" path="res://side_by_side.gdshader" id="4_2uhk7"]
 [ext_resource type="Script" path="res://scripts/Screen.gd" id="4_88qjp"]
+[ext_resource type="Shader" path="res://side_by_side_image.gdshader" id="5_4icsx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lehxe"]
+render_priority = 0
+shader = ExtResource("4_2uhk7")
+
+[sub_resource type="QuadMesh" id="QuadMesh_gu11q"]
+material = SubResource("ShaderMaterial_lehxe")
+size = Vector2(1.92, 1.08)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_70g6i"]
+render_priority = 0
+shader = ExtResource("5_4icsx")
+
+[sub_resource type="QuadMesh" id="QuadMesh_i2ip8"]
+material = SubResource("ShaderMaterial_70g6i")
+size = Vector2(1.92, 1.08)
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -60,6 +78,7 @@ stretch_mode = 5
 script = ExtResource("4_88qjp")
 
 [node name="VideoPlayer" type="VideoStreamPlayer" parent="PlaybackControls/Screen"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -137,6 +156,17 @@ offset_right = -766.52
 offset_bottom = -2.92
 text = "Disclaimer: Previous/Next button only works when file is opened after the folder it is in is browsed first..."
 metadata/_edit_use_anchors_ = true
+
+[node name="SBS_Screen" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2.9)
+visible = false
+mesh = SubResource("QuadMesh_gu11q")
+
+[node name="SBS_Screen2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2.8)
+visible = false
+mesh = SubResource("QuadMesh_i2ip8")
 
 [connection signal="open" from="file open" to="." method="_on_file_open_dialog_open"]
 [connection signal="quit" from="file open" to="." method="_on_file_open_quit"]

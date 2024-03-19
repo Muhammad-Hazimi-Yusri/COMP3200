@@ -3,6 +3,8 @@ extends Control
 @onready var file_open_dialog = $"file open"
 @onready var image_display = $ImageDisplay
 @onready var video_player = $PlaybackControls/Screen/VideoPlayer
+@onready var SBS_Screen2 = $SBS_Screen2 #for images
+@onready var SBS_Screen = $SBS_Screen #for videos
 
 var main_path = ""
 
@@ -10,6 +12,9 @@ func _ready():
 	pass
 
 func _on_file_open_dialog_open(path: String):	
+
+	SBS_Screen2.hide()	
+	SBS_Screen.hide()
 	main_path = path
 	var window_size = get_viewport_rect().size
 	print_debug("Window size is: x="+str(window_size.x)+", y="+str(window_size.y))
@@ -22,9 +27,15 @@ func _on_file_open_dialog_open(path: String):
 		
 		$Disclaimer.hide()
 		image_display.texture = texture
+		
 		image_display.show()
 		$Next.show()
 		$Previous.show()
+		
+		# Wait 0.1 seconds then connect the video texture to the surface
+		await get_tree().create_timer(0.1).timeout
+		SBS_Screen2.get_active_material(0).set_shader_parameter("image", ImageTexture.create_from_image(image))
+		SBS_Screen2.show()
 		
 		
 		var json_path = path.replace(".jpg","_prediction.json")
@@ -37,7 +48,7 @@ func _on_file_open_dialog_open(path: String):
 		$PlaybackControls.show()
 		$Next.show()
 		$Previous.show()
-		pass
+		SBS_Screen.show()
 
 func load_json_data(file_path: String):
 	var file = FileAccess.open(file_path, FileAccess.READ)
@@ -55,6 +66,8 @@ func load_json_data(file_path: String):
 
 func _on_image_disp_button_pressed():
 	image_display.hide()
+	SBS_Screen.hide()
+	SBS_Screen2.hide()
 	$Next.hide()
 	$Previous.hide()
 	$Disclaimer.show()

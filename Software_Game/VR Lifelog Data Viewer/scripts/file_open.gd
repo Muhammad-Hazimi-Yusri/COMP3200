@@ -20,13 +20,17 @@ func _on_browse_pressed():
 	get_parent().add_child(nExplor)
 	nExplor.limited = limited
 	nExplor.done.connect(new_path)
-	if DirAccess.open($path.text): # retain browse dir if its a DIR
-		nExplor.to_dir($path.text)
+	var path_browse = $path.text
+	if DirAccess.open(path_browse): # retain browse dir if its a DIR
+		nExplor.to_dir(path_browse)
+	elif  DirAccess.open(path_browse.get_base_dir()):
+		nExplor.to_dir(path_browse.get_base_dir())
 
 
 func _on_open_pressed():
 	emit_signal("open", $path.text)
-	Globals.play.emit()
+	Globals.play.emit() # this causes bug with SBS_Screen showing sporadically 
+	# ok maybe not, it was the file = false change prob.
 
 func _on_quit_pressed():
 	emit_signal("quit")
