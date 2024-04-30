@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://b8gjdw7sv0ic"
+path="res://.godot/imported/stitched_image_20240416_152031.jpg-3c08c1281daa6d95a575673d38d301af.image"
+
+[deps]
+
+source_file="res://samples/images/stitched_image_20240416_152031.jpg"
+dest_files=["res://.godot/imported/stitched_image_20240416_152031.jpg-3c08c1281daa6d95a575673d38d301af.image"]
+
+[params]
+

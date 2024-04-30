@@ -4,7 +4,7 @@ from datetime import datetime
 import piexif
 from PIL import Image
 
-samples_path = "Samples-testing-12-march"
+samples_path = "input" # for rasp pi camera, change the left/right
 
 def stitch_videos(output_dir):
     # Create the output directory if it doesn't exist
@@ -30,11 +30,10 @@ def stitch_videos(output_dir):
             output_path = os.path.join(output_video_dir, f"stitched_{filename.replace('_vid0', '').replace('_vid2', '')}")
 
             # Define the ffmpeg command to stitch the videos side by side
-            # Define the ffmpeg command to stitch the videos side by side
             ffmpeg_command = [
                 "ffmpeg",
+                "-i", vid2_path, #raspi cam use 2,0 instead of 0,2
                 "-i", vid0_path,
-                "-i", vid2_path,
                 "-filter_complex", "[0:v][1:v]hstack=inputs=2",
                 "-c:v", "libtheora",  # Use Theora codec for .ogv
                 "-qscale:v", "7",  # Set quality scale for Theora codec
@@ -88,8 +87,8 @@ def stitch_images(output_dir):
             result = Image.new('RGB', (result_width, result_height))
 
             # Paste the input images side by side
-            result.paste(img0, (0, 0))
-            result.paste(img2, (width1, 0))
+            result.paste(img2, (0, 0)) #raspi cam use 2,0 instead of 0,2
+            result.paste(img0, (width1, 0))
 
             # Load metadata from the first input image
             try:

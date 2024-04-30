@@ -36,7 +36,8 @@ func _on_file_open_dialog_open(path: String):
 		await get_tree().create_timer(0.1).timeout
 		SBS_Screen2.get_active_material(0).set_shader_parameter("image", ImageTexture.create_from_image(image))
 		SBS_Screen2.show()
-		
+
+		image_display.texture = load("res://assets/transparent_texture.tres")
 		
 		var json_path = path.replace(".jpg","_prediction.json")
 		

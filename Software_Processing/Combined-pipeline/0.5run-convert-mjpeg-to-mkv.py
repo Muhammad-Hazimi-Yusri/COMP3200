@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-samples_path = "raspi-cam-3-test-15-march/"
+samples_path = "input/"
 
 def convert_mjpeg_to_mkv(input_dir):
     # Iterate over the video files in the input directory

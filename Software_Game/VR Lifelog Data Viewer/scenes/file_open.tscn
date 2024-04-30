@@ -6,8 +6,8 @@
 anchors_preset = -1
 anchor_left = 0.111
 anchor_top = 0.395
-anchor_right = 0.889
-anchor_bottom = 0.583
+anchor_right = 0.919382
+anchor_bottom = 0.633926
 offset_left = 0.127991
 offset_top = 0.0399933
 offset_right = -0.128052
@@ -68,11 +68,12 @@ anchor_left = 0.905
 anchor_top = 0.09
 anchor_right = 0.973
 anchor_bottom = 0.918
-offset_left = 0.119995
-offset_top = 0.0199995
-offset_right = 4.19196
-offset_bottom = 0.0039978
+offset_left = -11.5549
+offset_top = -11.95
+offset_right = -7.48291
+offset_bottom = -11.966
 grow_horizontal = 0
+scale = Vector2(1.5, 1.5)
 
 [node name="browse" type="Button" parent="VBoxContainer"]
 layout_mode = 2

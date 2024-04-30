@@ -2,7 +2,7 @@ import os
 import re
 import shutil
 
-samples_path = "Samples-testing-12-march"
+samples_path = "input"
 output_path = "output"
 
 # Function to convert filenames

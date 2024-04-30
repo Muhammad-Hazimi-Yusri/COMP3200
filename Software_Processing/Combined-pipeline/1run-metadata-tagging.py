@@ -6,7 +6,7 @@ import subprocess
 import shlex
 import cv2
 
-samples_path = "Samples-testing-12-march/"
+samples_path = "input/"
 
 def make_prediction_request(file_path):
     url = "http://localhost:5000/model/predict"

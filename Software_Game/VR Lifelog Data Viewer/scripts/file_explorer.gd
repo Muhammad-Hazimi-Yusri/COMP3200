@@ -24,7 +24,7 @@ func _ready():
 	set_layout()
 	for i in Globals.pinned:
 		add_pinned_button(i)
-		
+	print_debug(str(DirAccess.get_drive_name(0)))
 	
 func add_pinned_button(arr:Array):
 	var nBut = Button.new()
@@ -164,6 +164,18 @@ func display_file(file_name, file_extension, parent_container):
 	print_debug("Appending filelist")
 	file_container.add_child(nBut)
 	nBut.pressed.connect(open_file.bind(file_name))
+	# Add input event handler for TextureRect
+	# Add input event handler for TextureRect
+	texture_rect.gui_input.connect(_on_texture_rect_gui_input.bind(texture_rect, file_name))
+
+# New function to handle TextureRect input events
+func _on_texture_rect_gui_input(event, texture_rect, file_name):
+	if event is InputEventMouseButton:
+		if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+			open_file(file_name)
+			texture_rect.modulate = Color(0.7, 0.7, 0.7)  # Darken the texture when pressed
+		elif event.is_released() and event.button_index == MOUSE_BUTTON_LEFT:
+			texture_rect.modulate = Color(1, 1, 1)  # Reset the texture color when released
 
 
 func read_metadata_file(file_path: String) -> Dictionary:
